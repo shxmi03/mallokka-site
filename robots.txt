@@ -1,0 +1,7 @@
+# robots.txt — MALLOKKA
+# TODO (Deploy kartica): zamijeni DOMENA pravom domenom kad se registrira
+
+User-agent: *
+Allow: /
+
+Sitemap: https://DOMENA/sitemap.xml
