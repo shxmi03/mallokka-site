@@ -711,7 +711,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     renderer.setSize(w,h,false);
     scene=new THREE.Scene();
     camera=new THREE.PerspectiveCamera(48,w/h,0.1,100); camera.position.set(0,0,10.5);
-    var COLS=92,ROWS=44,PW=20,PH=10,pos=new Float32Array(COLS*ROWS*3),i=0;
+    var COLS=136,ROWS=74,PW=34,PH=19,pos=new Float32Array(COLS*ROWS*3),i=0;
     for(var y=0;y<ROWS;y++)for(var x=0;x<COLS;x++){
       pos[i++]=(x/(COLS-1)-0.5)*PW; pos[i++]=(y/(ROWS-1)-0.5)*PH; pos[i++]=0;
     }
