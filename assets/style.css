@@ -49,7 +49,8 @@ header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--p
 .tbtn:hover{background:var(--surface-2)}
 .tbtn svg{display:block}
 .tbtn:active{transform:scale(.94)}
-.navcta{text-decoration:none;font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:30px;background:var(--ink);color:var(--paper);white-space:nowrap}
+.navcta{text-decoration:none;font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:30px;background:var(--ink);color:var(--paper);white-space:nowrap;transition:background .15s}
+.navcta:hover{background:color-mix(in srgb,var(--ink) 86%,var(--blue-deep))}
 
 .hero{position:relative;padding:70px 0 56px;overflow:hidden;background:radial-gradient(1050px 460px at 24% 44%,color-mix(in srgb,var(--blue-solid) 22%,transparent),transparent 70%)}
 #three-hero{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
