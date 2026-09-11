@@ -1,7 +1,7 @@
 # robots.txt — MALLOKKA
-# TODO (Deploy kartica): zamijeni DOMENA pravom domenom kad se registrira
+# Domena: mallokka.hr; ako se promijeni, zamijeni i u sitemap.xml + index.html
 
 User-agent: *
 Allow: /
 
-Sitemap: https://DOMENA/sitemap.xml
+Sitemap: https://mallokka.hr/sitemap.xml

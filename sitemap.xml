@@ -2,10 +2,11 @@
 <!-- sitemap.xml — MALLOKKA
      Napomena: stranica je SPA s hash-rutama (#/usluge, #/paketi ...), pa je za tražilice
      to jedan URL (root). Kad/ako se pređe na prave putanje, dodati zasebne <url> unose.
-     TODO (Deploy kartica): zamijeni DOMENA pravom domenom. -->
+     Domena: mallokka.hr; ako se promijeni, zamijeni i u robots.txt + index.html (canonical/og:url). -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://DOMENA/</loc>
+    <loc>https://mallokka.hr/</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
