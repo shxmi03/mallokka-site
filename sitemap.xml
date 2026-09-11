@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mallokka.hr/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://mallokka.hr/usluge.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mallokka.hr/paketi.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mallokka.hr/proces.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mallokka.hr/radovi.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mallokka.hr/faq.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://mallokka.hr/kontakt.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mallokka.hr/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mallokka.hr/usluge.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mallokka.hr/paketi.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mallokka.hr/proces.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mallokka.hr/radovi.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mallokka.hr/faq.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mallokka.hr/kontakt.html</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
