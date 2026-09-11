@@ -52,10 +52,14 @@ document.addEventListener('DOMContentLoaded', function () {
         ? 'dark' : 'light';
     }
 
-    // Osvježi ikonu dugmeta prema aktivnoj temi (☀ svijetlo / ☾ tamno).
+    // Ikone (inline SVG — bez ovisnosti o fontovima; glyph ☾☀ zna ispasti "tofu").
+    const ICON_SUN = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M5.2 18.8l1.7-1.7M17.1 6.9l1.7-1.7"/></svg>';
+    const ICON_MOON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.7 13.1A8.5 8.5 0 1 1 10.9 3.3a6.6 6.6 0 0 0 9.8 9.8z"/></svg>';
+
+    // Osvježi ikonu dugmeta prema aktivnoj temi (sunce = svijetlo / mjesec = tamno).
     function updateIcon(btn) {
       if (!btn) return;
-      btn.textContent = activeMode() === 'dark' ? '☾' : '☀';
+      btn.innerHTML = activeMode() === 'dark' ? ICON_MOON : ICON_SUN;
     }
 
     // Primijeni spremljenu temu na učitavanju (ako postoji).

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* 404 se servira s bilo koje putanje; <base> osigurava da relativne putanje
+   uvijek gledaju u korijen stranice — i na gh.io poddirektoriju i na pravoj domeni. */
+(function () {
+  var root = location.protocol === 'file:'
+    ? ''
+    : (/\.github\.io$/.test(location.hostname) ? '/mallokka-site/' : '/');
+  if (root) document.write('<base href="' + root + '">');
+})();
+</script>
+<title>Stranica nije pronađena — Mallokka</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#FBF2DE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17140E" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.png" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="assets/logo.jpg" alt="Mallokka logo"><b>Mallokka</b></a>
+    <nav class="navlinks">
+      <a href="index.html">Naslovnica</a>
+      <a href="usluge.html">Usluge</a>
+      <a href="paketi.html">Paketi</a>
+      <a href="proces.html">Proces</a>
+      <a href="radovi.html">Radovi</a>
+      <a href="faq.html">FAQ</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <div class="navtools">
+      <button class="tbtn" id="themeBtn" aria-label="Promijeni temu" title="Promijeni temu">◐</button>
+      <a class="navcta" href="kontakt.html">Besplatne konzultacije</a>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="band" style="padding:92px 0 86px">
+    <div class="wrap" style="text-align:center;max-width:620px">
+      <span class="eyebrow">Greška 404</span>
+      <h1 style="font-size:clamp(34px,6vw,54px);margin:14px 0 18px">Stranica nije pronađena</h1>
+      <p class="lead" style="margin:0 auto 28px">Adresa koju ste otvorili ne postoji ili je premještena. Vratite se na naslovnicu ili nam se javite — tu smo za sva pitanja.</p>
+      <div class="cta" style="justify-content:center">
+        <a class="btn btn-p" href="index.html">Natrag na naslovnicu</a>
+        <a class="btn btn-s" href="kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="ft"><div class="ft-in">
+  <div>
+    <a class="brand" href="index.html"><img src="assets/logo.jpg" alt="Mallokka logo"><b>Mallokka</b></a>
+    <small style="margin-top:9px">Marketing &amp; Events · Zadar i okolica<br>Karla Mišlov, univ. bacc. turism. cult.</small>
+  </div>
+  <div><small><strong style="color:var(--ink-2)">Stranice</strong><br>
+    <a href="usluge.html">Usluge</a> · <a href="paketi.html">Paketi</a> · <a href="proces.html">Proces</a> · <a href="radovi.html">Radovi</a> · <a href="faq.html">FAQ</a> · <a href="kontakt.html">Kontakt</a></small></div>
+  <div><small><strong style="color:var(--ink-2)">Kontakt</strong><br>
+    <a href="mailto:mallokka.agency@gmail.com">mallokka.agency@gmail.com</a><br>
+    <a href="https://wa.me/385917916536">091 7916 536</a> · <a href="https://www.instagram.com/mallokka.agency">@mallokka.agency</a></small></div>
+</div></footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

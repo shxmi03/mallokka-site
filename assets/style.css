@@ -45,8 +45,10 @@ header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--p
 .navlinks a:hover{background:var(--surface-2);color:var(--ink)}
 .navlinks a.on{background:var(--blue-solid);color:var(--on-blue);font-weight:600}
 .navtools{display:flex;gap:8px;align-items:center}
-.tbtn{background:none;border:1px solid var(--line-2);color:var(--ink-2);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:13px;display:grid;place-items:center}
+.tbtn{background:none;border:1px solid var(--line-2);color:var(--ink-2);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:13px;display:grid;place-items:center;transition:transform .15s}
 .tbtn:hover{background:var(--surface-2)}
+.tbtn svg{display:block}
+.tbtn:active{transform:scale(.94)}
 .navcta{text-decoration:none;font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:30px;background:var(--ink);color:var(--paper);white-space:nowrap}
 
 .hero{position:relative;padding:70px 0 56px;overflow:hidden;background:radial-gradient(1050px 460px at 24% 44%,color-mix(in srgb,var(--blue-solid) 22%,transparent),transparent 70%)}
@@ -62,6 +64,7 @@ header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--p
 .btn{text-decoration:none;font-size:14.5px;font-weight:600;padding:13px 23px;border-radius:34px;display:inline-block;transition:transform .18s}
 .btn-p{background:var(--ink);color:var(--paper)} .btn-p:hover{transform:translateY(-2px)}
 .btn-s{background:transparent;color:var(--ink);border:1px solid var(--line-2)} .btn-s:hover{background:var(--surface-2)}
+.btn-p:active{transform:translateY(0) scale(.98)} .btn-s:active,.navcta:active{transform:scale(.98)}
 
 .facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface-2)}
 .facts-in{max-width:var(--maxw);margin:0 auto;padding:24px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
@@ -152,5 +155,6 @@ main{animation:fade .32s ease both}
   .hero-grid{gap:30px} .facts-in{grid-template-columns:repeat(2,1fr)}
   .case-body{padding:26px} .svc-row{grid-template-columns:30px 1fr;gap:14px} .svc-row .body{grid-column:2}
   .nav-in{flex-wrap:wrap;gap:10px} .navcta{display:none}
+  .brand{order:1} .navtools{order:2;margin-left:auto} .navlinks{order:3;width:100%}
 }
 @media (max-width:560px){.wrap{padding:0 20px} section.band{padding:44px 0} .facts-in{gap:16px}}

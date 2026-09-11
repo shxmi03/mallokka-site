@@ -13,6 +13,7 @@ proces.html     Proces u 5 koraka
 radovi.html     Projekti i klijenti
 faq.html        Česta pitanja
 kontakt.html    Kontakt i forma
+404.html        Prilagođena 404 stranica (nepostojeći URL-ovi)
 robots.txt      Dozvola za indeksiranje + put do sitemapa
 sitemap.xml     Popis svih 7 stranica za Google
 assets/
