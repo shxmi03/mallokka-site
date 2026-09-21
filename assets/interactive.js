@@ -256,4 +256,13 @@
       if (route === "/kalkulator" && !calcUp) { calcUp = calc.init(); }
     }
   };
+
+  /* Izravno otvaranje rute (dijeljeni link, refresh, povratak s Googlea):
+     ovaj je skript defer, pa se izvršava NAKON inline routera — njegov prvi
+     render je već prošao i MKX tada još nije postojao. Bez ovog poziva
+     /sezona ostaje bez grafa, a /kalkulator bez izračuna. */
+  try {
+    var start = (location.hash || "#/").replace(/^#/, "") || "/";
+    window.MKX.onRoute(start);
+  } catch (e) {}
 })();
