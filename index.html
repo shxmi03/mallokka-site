@@ -79,6 +79,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<script>
+/* Ruta se postavlja odmah (i prije nego router na kraju dokumenta stigne) —
+   bez ovoga je stranica na sporoj vezi ~2 s prazna, a sadržaj onda "skoči" (CLS). */
+(function(){try{
+  var R=["/","/sezona","/kalkulator","/usluge","/paketi","/proces","/radovi","/o-nama","/faq","/kontakt","/impressum","/privatnost","/uvjeti","/kolacici"];
+  var h=(location.hash||"#/").replace(/^#/,""); if(h.charAt(0)!=="/")h="/"+h;
+  if(R.indexOf(h)===-1)h="/";
+  document.documentElement.setAttribute("data-mk-route",h);
+}catch(e){}})();
+</script>
 <style>
 :root{
   --paper:#FEF3D5; --paper-2:#F8E9C6; --surface:#FFFDF6; --surface-2:#F6EFDC;
@@ -232,6 +242,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 .ft a{color:var(--muted)}
 
 .route{display:none} .route.active{display:block;animation:fade .32s ease both}
+html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .route[data-route="/sezona"],html[data-mk-route="/kalkulator"] .route[data-route="/kalkulator"],html[data-mk-route="/usluge"] .route[data-route="/usluge"],html[data-mk-route="/paketi"] .route[data-route="/paketi"],html[data-mk-route="/proces"] .route[data-route="/proces"],html[data-mk-route="/radovi"] .route[data-route="/radovi"],html[data-mk-route="/o-nama"] .route[data-route="/o-nama"],html[data-mk-route="/faq"] .route[data-route="/faq"],html[data-mk-route="/kontakt"] .route[data-route="/kontakt"],html[data-mk-route="/impressum"] .route[data-route="/impressum"],html[data-mk-route="/privatnost"] .route[data-route="/privatnost"],html[data-mk-route="/uvjeti"] .route[data-route="/uvjeti"],html[data-mk-route="/kolacici"] .route[data-route="/kolacici"]{display:block}
 @keyframes fade{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}.route.active{animation:none}}
 
@@ -617,7 +628,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     </div>
   </div></section>
 </div>
-</main>
+
 
 
 <div class="route" data-route="/o-nama">
@@ -839,6 +850,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
   </div>
 </div>
 
+</main>
 <footer class="ft"><div class="ft-in">
   <div>
     <a class="brand" href="#/"><img src="assets/logo-wordmark.png" width="409" height="113" decoding="async" alt="mallokka by Karla"></a>
@@ -891,6 +903,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     var h=(location.hash||"#/").replace(/^#/,"");
     if(h.charAt(0)!=="/") h="/"+h;
     if(ROUTES.indexOf(h)===-1) h="/";
+    document.documentElement.setAttribute("data-mk-route",h);   /* drži u sinkronizaciji s CSS-om */
     views.forEach(function(v){v.classList.toggle("active",v.getAttribute("data-route")===h);});
     links.forEach(function(a){a.classList.toggle("on",a.getAttribute("data-r")===h);});
     var t=document.querySelector('.route[data-route="'+h+'"]');
