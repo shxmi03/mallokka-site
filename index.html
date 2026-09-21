@@ -927,7 +927,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
   function meshResize(){
     if(!host)return;
     var w=host.clientWidth,h=host.clientHeight; if(!w||!h)return;
-    hdpr=Math.min(window.devicePixelRatio||1, w<620?1.3:1.6);
+    hdpr=Math.min(window.devicePixelRatio||1, w<620?1.15:1.4);
     HW=w; HH=h;
     canvas.width=Math.round(w*hdpr); canvas.height=Math.round(h*hdpr);
     canvas.style.width=w+"px"; canvas.style.height=h+"px";
@@ -1011,7 +1011,11 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
       hero.addEventListener("pointerleave",function(){ mx=-99; my=-99; },{passive:true});
     }
     if(meshReduce()){ meshFrame(1.2); return; }
-    startLoop();
+    /* Prvi kadar se crta odmah (hero nije prazan), a animacija kreće nakon što
+       se stranica slegne — inače 30 fps crtanja troši glavnu nit tijekom
+       učitavanja (Lighthouse TBT, slabiji mobiteli). */
+    meshFrame(phase);
+    setTimeout(function(){ startLoop(); }, 1800);
   }
   function heroBounds(){
     if(!heroEl)return;
