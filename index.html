@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="hr">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MALLOKKA — Marketing i social media agencija | Zadar</title>
@@ -35,7 +36,7 @@
   "image": "https://mallokka.hr/assets/og-image.jpg",
   "email": "mallokka.agency@gmail.com",
   "telephone": "+385 91 7916 536",
-  "priceRange": "380 € – 990 €",
+  "priceRange": "520 € – 1.250 €",
   "currenciesAccepted": "EUR",
   "knowsLanguage": ["hr"],
   "founder": { "@type": "Person", "name": "Karla Mišlov" },
@@ -51,9 +52,9 @@
     "@type": "OfferCatalog",
     "name": "Paketi vođenja društvenih mreža",
     "itemListElement": [
-      { "@type": "Offer", "name": "Start", "price": "380", "priceCurrency": "EUR", "description": "8 objava i 10 storyja mjesečno, plan sadržaja, osnovni dizajn vizuala, mjesečni izvještaj.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "380", "priceCurrency": "EUR", "unitCode": "MON" } },
-      { "@type": "Offer", "name": "Standard", "price": "600", "priceCurrency": "EUR", "description": "12–16 objava i 15 storyja mjesečno, dvije mreže, osnovno vođenje oglašavanja, analiza rezultata.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "600", "priceCurrency": "EUR", "unitCode": "MON" } },
-      { "@type": "Offer", "name": "Premium", "price": "990", "priceCurrency": "EUR", "description": "20+ objava, svakodnevni story, vođenje oglasa, mjesečna strategija i konzultacije, detaljno izvještavanje.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "990", "priceCurrency": "EUR", "unitCode": "MON" } }
+      { "@type": "Offer", "name": "Growth", "price": "520", "priceCurrency": "EUR", "description": "8 objava i 10 storyja mjesečno, plan sadržaja, osnovni dizajn vizuala, mjesečni izvještaj.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "520", "priceCurrency": "EUR", "unitCode": "MON" } },
+      { "@type": "Offer", "name": "Pro", "price": "790", "priceCurrency": "EUR", "description": "12–16 objava i 15 storyja mjesečno, dvije mreže, osnovno vođenje oglašavanja, analiza rezultata.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "790", "priceCurrency": "EUR", "unitCode": "MON" } },
+      { "@type": "Offer", "name": "Premium", "price": "1250", "priceCurrency": "EUR", "description": "20+ objava, svakodnevni story, vođenje oglasa, mjesečna strategija i konzultacije, detaljno izvještavanje.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1250", "priceCurrency": "EUR", "unitCode": "MON" } }
     ]
   }
 }
@@ -242,6 +243,36 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 @media (max-width:560px){.wrap{padding:0 20px} section.band{padding:44px 0} .facts-in{gap:16px}}
 </style>
 
+<style>
+/* ---------- interaktivne sekcije (studio + sezona) ---------- */
+.mk-season{position:relative;width:100%;aspect-ratio:16/7.2;border-radius:16px;background:#0b0d10;overflow:hidden;border:1px solid var(--line-2)}
+#season-canvas,#lab-canvas{position:absolute;inset:0}
+.mk-tip{position:absolute;left:0;top:0;transform:translate(-50%,-112%);background:rgba(20,17,15,.94);color:#fff;border-radius:12px;padding:12px 14px;width:240px;pointer-events:none;opacity:0;transition:opacity .18s ease;box-shadow:var(--shadow);z-index:5}
+.mk-tip.on{opacity:1}
+.mk-tip .tm{font-size:15px;font-weight:600}
+.mk-tip .tv{font-size:12px;color:var(--blue);margin:3px 0 7px;font-variant-numeric:tabular-nums}
+.mk-tip .tn{font-size:12.5px;line-height:1.42;color:rgba(255,255,255,.82)}
+.mk-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:13px;color:var(--ink-2)}
+.mk-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
+.mk-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.mk-lab{border-radius:16px;overflow:hidden;background:#141110;border:1px solid var(--line-2)}
+.mk-lab-stage{position:relative;width:100%;aspect-ratio:16/8.6;background:#0b0d10}
+.mk-lab-hint,.mk-lab-badge{position:absolute;font-size:12px;color:rgba(255,255,255,.5);pointer-events:none}
+.mk-lab-hint{left:16px;bottom:14px}
+.mk-lab-badge{right:16px;top:14px;font-variant-numeric:tabular-nums}
+.mk-lab-controls{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:22px 24px;background:#1b1715}
+.mk-field label{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:rgba(255,255,255,.75);margin-bottom:10px}
+.mk-field label b{font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+.mk-field input[type=range]{width:100%;accent-color:var(--blue)}
+.mk-lab-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:0 24px 24px;background:#1b1715}
+.mk-micro{font-size:12.5px;color:rgba(255,255,255,.6);margin-left:auto}
+.mk-kbd{border:1px solid rgba(255,255,255,.32);border-radius:5px;padding:1px 5px;color:rgba(255,255,255,.7)}
+@media (max-width:820px){.mk-lab-controls{grid-template-columns:1fr 1fr}.mk-season{aspect-ratio:1/1.02}}
+@media (max-width:560px){.mk-lab-controls{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
 <header class="nav">
   <div class="nav-in">
     <a class="brand" href="#/"><img src="assets/logo-wordmark.png" width="409" height="113" decoding="async" alt="mallokka by Karla"></a>
@@ -250,7 +281,9 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
       <a href="#/usluge" data-r="/usluge">Usluge</a>
       <a href="#/paketi" data-r="/paketi">Paketi</a>
       <a href="#/proces" data-r="/proces">Proces</a>
+      <a href="#/sezona" data-r="/sezona">Sezona</a>
       <a href="#/radovi" data-r="/radovi">Radovi</a>
+      <a href="#/studio" data-r="/studio">Studio</a>
       <a href="#/o-nama" data-r="/o-nama">O nama</a>
       <a href="#/faq" data-r="/faq">FAQ</a>
       <a href="#/kontakt" data-r="/kontakt">Kontakt</a>
@@ -359,18 +392,18 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
       <p class="lead">Prvi mjesec suradnje je probni. Nakon toga ugovor ide na minimalno tri mjeseca, uz otkazni rok od 30 dana. Cijene su mjesečne i ne uključuju budžet za oglašavanje.</p></div>
     <div class="tiers">
       <div class="tier">
-        <div class="nm">Start</div><div class="pr tnum">380 €<small> / mj.</small></div>
+        <div class="nm">Growth</div><div class="pr tnum">520 €<small> / mj.</small></div>
         <p class="desc">Za male biznise koji tek kreću i trebaju profesionalnu prisutnost.</p>
         <ul class="tick"><li>8 objava mjesečno</li><li>10 storyja mjesečno</li><li>Plan sadržaja</li><li>Osnovni dizajn vizuala</li><li>Mjesečni izvještaj o rezultatima</li></ul>
       </div>
       <div class="tier feat">
         <span class="badge">Najčešći odabir</span>
-        <div class="nm">Standard</div><div class="pr tnum">600 €<small> / mj.</small></div>
+        <div class="nm">Pro</div><div class="pr tnum">790 €<small> / mj.</small></div>
         <p class="desc">Za aktivne profile koji žele kontinuirani rast i veću vidljivost.</p>
         <ul class="tick"><li>12–16 objava mjesečno</li><li>15 storyja mjesečno</li><li>Vođenje 2 društvene mreže</li><li>Osnovno vođenje oglašavanja</li><li>Analiza rezultata i prijedlozi</li></ul>
       </div>
       <div class="tier">
-        <div class="nm">Premium</div><div class="pr tnum">990 €<small> / mj.</small></div>
+        <div class="nm">Premium</div><div class="pr tnum">1.250 €<small> / mj.</small></div>
         <p class="desc">Kompletna marketinška podrška i prepuštanje brige o mrežama stručnjacima.</p>
         <ul class="tick"><li>20+ objava mjesečno</li><li>Svakodnevni story sadržaj</li><li>Postavljanje i vođenje oglasa</li><li>Izrada mjesečne strategije</li><li>Mjesečne konzultacije</li><li>Detaljno izvještavanje</li></ul>
       </div>
@@ -473,7 +506,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
         <div class="field"><label for="f1">Ime i objekt</label><input id="f1" name="ime" required placeholder="Ana Horvat · Caffe bar Riva"></div>
         <div class="field"><label for="f2">E-mail</label><input id="f2" name="mail" type="email" required placeholder="ana@caffebar.hr"></div>
         <div class="field"><label for="f3">Paket koji vas zanima</label>
-          <select id="f3" name="paket"><option>Još ne znam</option><option>Start — 380 €/mj.</option><option>Standard — 600 €/mj.</option><option>Premium — 990 €/mj.</option><option>Custom paket</option></select></div>
+          <select id="f3" name="paket"><option>Još ne znam</option><option>Growth — 520 €/mj.</option><option>Pro — 790 €/mj.</option><option>Premium — 1.250 €/mj.</option><option>Custom paket</option></select></div>
         <div class="field"><label for="f4">Poruka</label><textarea id="f4" name="poruka" placeholder="Vodimo bar u centru, objavljujemo neredovito i nemamo vremena snimati."></textarea></div>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <button class="btn btn-p" type="submit" style="border:none;cursor:pointer;font-family:inherit">Pošalji upit</button>
@@ -551,6 +584,62 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 #cookieBar .rej{background:transparent;color:var(--ink)}
 #cookieBar a{color:var(--blue-deep)}
 </style>
+
+<div class="route" data-route="/sezona">
+  <section class="band"><div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Sezonalnost</span>
+      <h2>Marketing u turizmu nije ravan. Ni vaš plan ne bi trebao biti.</h2>
+      <p class="lead" style="margin-top:10px">Zadarska sezona diže se od svibnja i kulminira u srpnju i kolovozu. Prijeđite mišem ili prstom preko mjeseca da vidite što se u kojem dijelu godine konkretno radi — planiranje počinje mnogo prije prve gužve.</p></div>
+    <div class="mk-season" id="season-plot">
+      <div id="season-canvas" aria-hidden="true"></div>
+      <div class="mk-tip" id="season-tip" role="status" aria-live="polite">
+        <div class="tm" id="tip-m"></div><div class="tv" id="tip-v"></div><div class="tn" id="tip-n"></div>
+      </div>
+    </div>
+    <div class="mk-legend">
+      <span><i style="background:#95BBEA"></i>Sezona — objave, eventi i kampanje</span>
+      <span><i style="background:#FAD0D9"></i>Priprema i analiza izvan sezone</span>
+      <span style="opacity:.65">Indeks = relativni interes gostiju (0–100)</span>
+    </div>
+    <div class="mk-sr">
+      <table id="season-table">
+        <caption>Mjesečni plan rada i indeks interesa gostiju</caption>
+        <thead><tr><th>Mjesec</th><th>Indeks</th><th>Fokus</th></tr></thead><tbody></tbody>
+      </table>
+    </div>
+    <p style="margin-top:24px"><a class="btn btn-p" href="#/paketi">Pogledaj pakete</a> <a class="btn btn-s" href="#/studio">Isprobaj interaktivni studio</a></p>
+  </div></section>
+</div>
+
+<div class="route" data-route="/studio">
+  <section class="band"><div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Interaktivni studio</span>
+      <h2>Vaš brend nije statičan. Zašto bi bio vizual?</h2>
+      <p class="lead" style="margin-top:10px">Mali dio onoga što radim s vizualima brenda: generativni sistem koji se ponaša po pravilima koja zadate. Povucite mišem po platnu da oblikujete tok, kliknite za novi nalet, podesite gustoću, strukturu, tempo i toplinu palete — pa preuzmite vizual kao pozadinu objave ili storyja.</p></div>
+    <div class="mk-lab">
+      <div class="mk-lab-stage" id="lab-stage">
+        <div id="lab-canvas" aria-hidden="true"></div>
+        <span class="mk-lab-hint">Povuci = oblikuj tok · Klik = nalet čestica</span>
+        <span class="mk-lab-badge" id="lab-badge">seed ----</span>
+      </div>
+      <div class="mk-lab-controls">
+        <div class="mk-field"><label for="s-density">Gustoća sadržaja <b id="v-density">2.2k</b></label>
+          <input id="s-density" type="range" min="30" max="400" value="160" step="10" data-lab="density"></div>
+        <div class="mk-field"><label for="s-structure">Struktura <b id="v-structure">1.00</b></label>
+          <input id="s-structure" type="range" min="40" max="240" value="100" step="5" data-lab="structure"></div>
+        <div class="mk-field"><label for="s-tempo">Tempo <b id="v-tempo">1.00</b></label>
+          <input id="s-tempo" type="range" min="20" max="260" value="100" step="5" data-lab="tempo"></div>
+        <div class="mk-field"><label for="s-warmth">Toplina palete <b id="v-warmth">35%</b></label>
+          <input id="s-warmth" type="range" min="0" max="100" value="35" step="5" data-lab="warmth"></div>
+      </div>
+      <div class="mk-lab-actions">
+        <button class="btn btn-s" id="lab-new" type="button">Novi vizual</button>
+        <button class="btn btn-p" id="lab-save" type="button">Preuzmi PNG</button>
+        <span class="mk-micro">Tipkovnica: <span class="mk-kbd">N</span> novi · <span class="mk-kbd">S</span> spremi · <span class="mk-kbd">Space</span> pauza</span>
+      </div>
+    </div>
+  </div></section>
+</div>
 
 <div class="route legal" data-route="/impressum">
   <section class="band"><div class="wrap">
@@ -687,7 +776,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     <small style="margin-top:9px">Marketing &amp; Events · Zadar i okolica<br>Karla Mišlov, univ. bacc. turism. cult.</small>
   </div>
   <div><small><strong style="color:var(--ink-2)">Stranice</strong><br>
-    <a href="#/usluge">Usluge</a> · <a href="#/paketi">Paketi</a> · <a href="#/proces">Proces</a> · <a href="#/radovi">Radovi</a> · <a href="#/o-nama">O nama</a> · <a href="#/faq">FAQ</a> · <a href="#/kontakt">Kontakt</a></small></div>
+    <a href="#/usluge">Usluge</a> · <a href="#/paketi">Paketi</a> · <a href="#/proces">Proces</a> · <a href="#/radovi">Radovi</a> · <a href="#/o-nama">O nama</a> · <a href="#/faq">FAQ</a> · <a href="#/kontakt">Kontakt</a><br><a href="#/sezona">Sezonski plan</a> · <a href="#/studio">Interaktivni studio</a></small></div>
   <div><small><strong style="color:var(--ink-2)">Kontakt</strong><br>
     <a href="mailto:mallokka.agency@gmail.com">mallokka.agency@gmail.com</a><br>
     <a href="https://wa.me/385917916536">091 7916 536</a> · <a href="https://www.instagram.com/mallokka.agency">@mallokka.agency</a></small></div>
@@ -698,7 +787,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 <script>
 (function(){
   "use strict";
-  var ROUTES=["/","/usluge","/paketi","/proces","/radovi","/o-nama","/faq","/kontakt","/impressum","/privatnost","/uvjeti","/kolacici"];
+  var ROUTES=["/","/sezona","/studio","/usluge","/paketi","/proces","/radovi","/o-nama","/faq","/kontakt","/impressum","/privatnost","/uvjeti","/kolacici"];
   var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var root=document.documentElement;
 
@@ -726,6 +815,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
       if(vw.classList.contains("active"))return;
       [].forEach.call(vw.querySelectorAll("video"),function(v){ try{v.pause();}catch(e){} });
     });
+    if(window.MKX&&window.MKX.onRoute)window.MKX.onRoute(h);
     window.scrollTo({top:0,behavior:reduce?"auto":"smooth"});
   }
   window.addEventListener("hashchange",render); render();
@@ -810,5 +900,6 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
   if(r)r.addEventListener("click",function(){choose("necessary");});
 }catch(e){}})();</script>
 
+<script src="assets/interactive.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body></html>
