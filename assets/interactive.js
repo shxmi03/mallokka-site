@@ -138,8 +138,8 @@
               if (p.mouseX < 0 || p.mouseX > W || p.mouseY < 0 || p.mouseY > H) return;
               burstAt(p.mouseX, p.mouseY);
             };
-            p.touchStarted = function () { p.mousePressed(); return false; };
-            p.touchMoved = function () { mx = p.mouseX; my = p.mouseY; return false; };
+            p.touchStarted = function () { p.mousePressed(); return true; };  // true = ne blokiraj skrol (mobitel)
+            p.touchMoved = function () { mx = p.mouseX; my = p.mouseY; return true; };  // true = dopusti skrol
 
             function burstAt(x, y) {
               waves.push({ x: x, y: y, r: 4 });
@@ -374,9 +374,9 @@
 
             p.mouseMoved = function () { updateHover(p.mouseX); };
             p.mouseOut = function () { hover = -1; tipEl.classList.remove("on"); };
-            p.touchStarted = function () { updateHover(p.mouseX); return false; };
+            p.touchStarted = function () { updateHover(p.mouseX); return true; };  // true = ne blokiraj skrol (mobitel)
             p.touchMoved = function () { updateHover(p.mouseX); return true; };   // true = dopusti skrol stranice
-            p.touchEnded = function () { return false; };
+            p.touchEnded = function () { return true; };
 
             function padL() { return W < 520 ? 26 : 44; }
             function padR() { return W < 520 ? 18 : 30; }
