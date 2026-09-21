@@ -32,7 +32,7 @@
   "name": "MALLOKKA",
   "description": "Marketing i social media agencija iz Zadra specijalizirana za turizam i lokalne biznise — restorane, barove, apartmane i beauty salone.",
   "url": "https://mallokka.hr/",
-  "logo": "https://mallokka.hr/assets/logo-full.png",
+  "logo": "https://mallokka.hr/assets/logo-wordmark.png",
   "image": "https://mallokka.hr/assets/og-image.jpg",
   "email": "mallokka.agency@gmail.com",
   "telephone": "+385 91 7916 536",
@@ -176,7 +176,7 @@ section.band{padding:62px 0}
 .tick li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--blue-deep)}
 
 .svc{border-top:1px solid var(--line)}
-.svc-row{display:grid;grid-template-columns:36px 1.05fr 1.35fr;gap:24px;padding:21px 0;border-bottom:1px solid var(--line);align-items:start}
+.svc-row{display:grid;grid-template-columns:36px minmax(200px,250px) minmax(0,1fr);gap:24px;padding:21px 0;border-bottom:1px solid var(--line);align-items:start}
 .svc-row .idx{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:5px}
 .svc-row h3{font-size:19px} .svc-row .body{font-size:14px}
 
@@ -238,7 +238,13 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 @media (max-width:960px){
   .hero-grid,.grid-3,.grid-2,.tiers,.client-row,.case{grid-template-columns:1fr}
   .hero-grid{gap:30px} .facts-in{grid-template-columns:repeat(2,1fr)}
-  .case-body{padding:26px} .svc-row{grid-template-columns:30px 1fr;gap:14px} .svc-row .body{grid-column:2}
+  .case-body{padding:26px}
+  /* usluge: na malim ekranima svaka usluga je centrirana kartica (tekst nije nabijen lijevo) */
+  .svc{border-top:0;display:flex;flex-direction:column;gap:12px}
+  .svc-row{grid-template-columns:1fr;gap:0;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:22px 20px}
+  .svc-row .idx{justify-self:center;margin:0 0 11px;padding:3px 11px;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--blue-deep);border:1px solid var(--line);border-radius:20px}
+  .svc-row h3{margin-bottom:9px}
+  .svc-row .body{grid-column:auto;max-width:44ch;margin:0 auto}
   .nav-in{flex-wrap:wrap;gap:10px} .navcta{display:none}
 }
 @media (max-width:560px){.wrap{padding:0 20px} section.band{padding:44px 0} .facts-in{gap:16px}}
@@ -249,6 +255,10 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 .nav-in{position:relative}
 .navburger{display:none;background:transparent;border:1px solid var(--line-2);border-radius:12px;width:44px;height:38px;
   font-size:17px;line-height:1;cursor:pointer;color:var(--ink);align-items:center;justify-content:center;flex:0 0 auto;font-family:inherit}
+/* ikone su SVG (znakovi iz fonta ☰/◐ nedostaju u Interu pa se prikazuju kao kvadratić) */
+.navburger .ico-bar{display:block} .navburger .ico-x{display:none}
+.navburger[aria-expanded="true"] .ico-bar{display:none}
+.navburger[aria-expanded="true"] .ico-x{display:block}
 .navburger:hover{background:var(--surface-2)}
 .navburger:focus-visible{outline:2px solid var(--blue-deep);outline-offset:2px}
 @media (max-width:960px){
@@ -364,11 +374,11 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
       <a href="#/kontakt" data-r="/kontakt">Kontakt</a>
     </nav>
     <div class="navtools">
-      <button class="tbtn" id="themeBtn" aria-label="Promijeni temu" title="Promijeni temu">◐</button>
+      <button class="tbtn" id="themeBtn" aria-label="Promijeni temu" title="Promijeni temu"><svg width="17" height="17" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="7.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.7a7.3 7.3 0 0 1 0 14.6z" fill="currentColor"/></svg></button>
       <a class="navcta" href="#/kontakt">Besplatne konzultacije</a>
     </div>
     <button class="navburger" id="navBurger" type="button" aria-label="Otvori navigaciju"
-            aria-expanded="false" aria-controls="navLinks" aria-haspopup="true">☰</button>
+            aria-expanded="false" aria-controls="navLinks" aria-haspopup="true"><svg class="ico-bar" width="20" height="14" viewBox="0 0 20 14" aria-hidden="true" focusable="false"><path d="M1 1.5h18M1 7h18M1 12.5h18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><svg class="ico-x" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M2.6 2.6l12.8 12.8M15.4 2.6L2.6 15.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></button>
   </div>
 </header>
 
@@ -857,7 +867,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     navLinksEl.classList.toggle("open",open);
     navBurger.setAttribute("aria-expanded",open?"true":"false");
     navBurger.setAttribute("aria-label",open?"Zatvori navigaciju":"Otvori navigaciju");
-    navBurger.textContent=open?"\u00d7":"\u2630";   /* × je u svim fontovima; ✕ nije */
+    /* ikona se mijenja preko aria-expanded + CSS (SVG), nema znakova iz fonta */
   }
   if(navBurger&&navLinksEl){
     navBurger.addEventListener("click",function(){ setMenu(!navLinksEl.classList.contains("open")); });
@@ -896,8 +906,9 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 
   /* ---------- hero: valovita mreža (canvas 2D, bez biblioteka) ---------- */
   var canvas=document.getElementById("hero-mesh"),host=null,ctx=null,HW=0,HH=0,hdpr=1,
-      NX=34,NY=26,meshColor="#6E9BC8",mx=-99,my=-99,
-      t0=performance.now(),heroVisible=true,looping=false,lastFrame=0,
+      NX=54,NY=42,meshColor="#6E9BC8",mx=-99,my=-99,
+      phase=1.2,boost=0,looping=false,lastFrame=0,lastScroll=0,
+      heroEl=null,heroTop=0,heroBottom=9999,
       meshBuf=null,spanX=1.45,spanY=1.95,SREF=0.4286;
 
   function readDot(){return (getComputedStyle(root).getPropertyValue("--dot")||"#6E9BC8").trim();}
@@ -911,8 +922,9 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     canvas.width=Math.round(w*hdpr); canvas.height=Math.round(h*hdpr);
     canvas.style.width=w+"px"; canvas.style.height=h+"px";
     var small=w<620;
-    NX=small?20:34; NY=small?18:26;
+    NX=small?40:54; NY=small?32:42;
     meshBuf=new Float32Array(NX*NY*3);
+    heroBounds();
   }
 
   /* visina plohe u točki (x,y u [-.5,.5]): nabor + valovi + reakcija na pokazivač */
@@ -945,12 +957,12 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     var a=0;
     for(j=0;j<NY;j++){
       var sum=0; for(i=0;i<NX;i++)sum+=meshBuf[(j*NX+i)*3+2];
-      ctx.globalAlpha=0.26+0.34*Math.min(1,Math.max(0,(sum/NX-0.72)*1.6));
+      ctx.globalAlpha=0.30+0.38*Math.min(1,Math.max(0,(sum/NX-0.72)*1.6));
       ctx.beginPath();
       for(i=0;i<NX;i++){ a=(j*NX+i)*3; if(i)ctx.lineTo(meshBuf[a],meshBuf[a+1]); else ctx.moveTo(meshBuf[a],meshBuf[a+1]); }
       ctx.stroke();
     }
-    ctx.globalAlpha=0.46;
+    ctx.globalAlpha=0.50;
     for(i=0;i<NX;i++){
       ctx.beginPath();
       for(j=0;j<NY;j++){ a=(j*NX+i)*3; if(j)ctx.lineTo(meshBuf[a],meshBuf[a+1]); else ctx.moveTo(meshBuf[a],meshBuf[a+1]); }
@@ -964,9 +976,10 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     host=canvas.parentElement; if(!host)return;
     ctx=canvas.getContext("2d"); if(!ctx)return;
     meshColor=readDot();
+    heroEl=document.querySelector(".hero");
     meshResize();
     window.addEventListener("resize",function(){ meshResize(); draw(); });
-    var hero=document.querySelector(".hero");
+    var hero=heroEl;
     if(hero&&!meshReduce()){
       hero.addEventListener("pointermove",function(ev){
         var r=hero.getBoundingClientRect();
@@ -978,18 +991,33 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     if(meshReduce()){ meshFrame(1.2); return; }
     startLoop();
   }
-  function draw(){ meshFrame((performance.now()-t0)/1000); }
-  function loop(ts){
-    if(!ctx||!heroVisible){ looping=false; return; }
-    requestAnimationFrame(loop);
-    if(ts&&ts-lastFrame<33)return; lastFrame=ts||0;
-    draw();
+  function heroBounds(){
+    if(!heroEl)return;
+    var r=heroEl.getBoundingClientRect(), sy=window.pageYOffset||document.documentElement.scrollTop||0;
+    if(r.height){ heroTop=r.top+sy; heroBottom=r.bottom+sy; }
   }
-  function startLoop(){ if(looping||!ctx||meshReduce())return; looping=true; requestAnimationFrame(loop); }
-  function refreshDot(){ meshColor=readDot(); if(ctx&&meshReduce())meshFrame(1.2); }
+  function draw(){ meshFrame(phase); }
+  function heroNear(){
+    var sy=window.pageYOffset||document.documentElement.scrollTop||0, vh=window.innerHeight||800;
+    return (sy<heroBottom+vh)&&(sy+vh>heroTop-vh);
+  }
+  /* stalna animacija: lagani drift + skrol je ubrzava u smjeru kretanja */
+  function loop(ts){
+    if(!ctx||document.hidden){ looping=false; return; }
+    requestAnimationFrame(loop);
+    ts=ts||performance.now();
+    var dt=lastFrame?Math.min(.06,(ts-lastFrame)/1000):.016; lastFrame=ts;
+    var sy=window.pageYOffset||document.documentElement.scrollTop||0;
+    var ds=sy-lastScroll; lastScroll=sy;
+    if(ds)boost=Math.max(-3,Math.min(3,boost+ds*.02));
+    phase+=dt*(1.05+Math.abs(boost)*1.25)+ds*.0055;
+    boost*=Math.exp(-dt*2.2);
+    if(heroNear())meshFrame(phase);
+  }
+  function startLoop(){ if(looping||!ctx||meshReduce())return; looping=true; lastFrame=0; lastScroll=window.pageYOffset||0; requestAnimationFrame(loop); }
+  function refreshDot(){ meshColor=readDot(); if(ctx)meshFrame(meshReduce()?1.2:phase); }
   try{ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",function(){ refreshDot(); }); }catch(e){}
-  if("IntersectionObserver" in window){ var heroEl=document.querySelector(".hero");
-    if(heroEl)new IntersectionObserver(function(es){ heroVisible=es[0].isIntersecting; if(heroVisible)startLoop(); },{threshold:0}).observe(heroEl); }
+  document.addEventListener("visibilitychange",function(){ if(!document.hidden)startLoop(); });
   if(document.readyState==="complete")meshInit(); else window.addEventListener("load",meshInit);
 })();</script>
 <script>(function(){try{
