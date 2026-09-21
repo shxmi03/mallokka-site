@@ -76,11 +76,12 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&display=swap"></noscript>
 <style>
 :root{
   --paper:#FEF3D5; --paper-2:#F8E9C6; --surface:#FFFDF6; --surface-2:#F6EFDC;
-  --ink:#48372F; --ink-2:#6E594C; --muted:#9A8571;
+  --ink:#48372F; --ink-2:#6E594C; --muted:#7A6653;
   --line:#EADBBE; --line-2:#DBC7A2;
   --blue:#95BBEA; --blue-solid:#95BBEA; --blue-deep:#3E6491; --blue-tint:#E7F0FB; --on-blue:#14283F;
   --pink:#FAD0D9; --pink-deep:#C77E90; --olive:#858E59; --olive-deep:#5E6539; --brown:#48372F;
@@ -157,7 +158,7 @@ section.band{padding:62px 0}
 .sec-head{margin-bottom:32px;max-width:70ch}
 .sec-head h2{font-size:clamp(29px,3.8vw,44px);margin:9px 0 12px}
 .blue-band{background:var(--blue-solid);color:var(--on-blue)}
-.blue-band .eyebrow{color:color-mix(in srgb,var(--on-blue) 62%,transparent)}
+.blue-band .eyebrow{color:color-mix(in srgb,var(--on-blue) 85%,transparent)}
 .blue-band h2,.blue-band h3{color:var(--on-blue)}
 .blue-band .body,.blue-band .lead{color:color-mix(in srgb,var(--on-blue) 84%,transparent)}
 .blue-band .tick li{color:color-mix(in srgb,var(--on-blue) 88%,transparent)}
@@ -243,7 +244,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="#/"><img src="assets/logo-wordmark.png" decoding="async" alt="mallokka by Karla"></a>
+    <a class="brand" href="#/"><img src="assets/logo-wordmark.png" width="409" height="113" decoding="async" alt="mallokka by Karla"></a>
     <nav class="navlinks">
       <a href="#/" data-r="/">Naslovnica</a>
       <a href="#/usluge" data-r="/usluge">Usluge</a>
@@ -682,7 +683,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
 
 <footer class="ft"><div class="ft-in">
   <div>
-    <a class="brand" href="#/"><img src="assets/logo-wordmark.png" decoding="async" alt="mallokka by Karla"></a>
+    <a class="brand" href="#/"><img src="assets/logo-wordmark.png" width="409" height="113" decoding="async" alt="mallokka by Karla"></a>
     <small style="margin-top:9px">Marketing &amp; Events · Zadar i okolica<br>Karla Mišlov, univ. bacc. turism. cult.</small>
   </div>
   <div><small><strong style="color:var(--ink-2)">Stranice</strong><br>
@@ -694,7 +695,6 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     <a href="#/impressum">Impressum</a> · <a href="#/privatnost">Privatnost</a> · <a href="#/uvjeti">Uvjeti</a> · <a href="#/kolacici">Kolačići</a></small></div>
 </div></footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
   "use strict";
@@ -774,14 +774,26 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
       },{passive:true});
       hero.addEventListener("pointerleave",function(){mat.uniforms.uMouse.value.set(99,99);},{passive:true});
     }
-    if(reduce){mat.uniforms.uTime.value=1.2;draw();} else loop();
+    if(reduce){mat.uniforms.uTime.value=1.2;draw();} else startLoop();
   }
   function onResize(){ if(!renderer||!host)return; var w=host.clientWidth,h=host.clientHeight; if(!w||!h)return;
     renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); if(reduce)draw(); }
   function draw(){ if(renderer)renderer.render(scene,camera); }
-  var t0=performance.now();
-  function loop(){ if(!renderer)return; mat.uniforms.uTime.value=(performance.now()-t0)/1000; draw(); requestAnimationFrame(loop); }
-  if(document.readyState==="complete")initThree(); else window.addEventListener("load",initThree);
+  var t0=performance.now(),heroVisible=true,looping=false;
+  function loop(){ if(!renderer||!heroVisible){looping=false;return;}
+    mat.uniforms.uTime.value=(performance.now()-t0)/1000; draw(); requestAnimationFrame(loop); }
+  function startLoop(){ if(looping||!renderer||reduce)return; looping=true; loop(); }
+  if("IntersectionObserver" in window){ var heroEl=document.querySelector(".hero");
+    if(heroEl)new IntersectionObserver(function(es){ heroVisible=es[0].isIntersecting; if(heroVisible)startLoop(); },{threshold:0}).observe(heroEl); }
+  function loadThree(){
+    if(typeof THREE!=="undefined"){initThree();return;}
+    var sc=document.createElement("script");
+    sc.src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+    sc.async=true; sc.onload=initThree;
+    document.head.appendChild(sc);
+  }
+  function schedule(){ if(window.requestIdleCallback)requestIdleCallback(loadThree,{timeout:2500}); else setTimeout(loadThree,400); }
+  if(document.readyState==="complete")schedule(); else window.addEventListener("load",schedule);
 })();
 </script>
 <script>(function(){try{
