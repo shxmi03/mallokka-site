@@ -899,11 +899,39 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 
   var views=[].slice.call(document.querySelectorAll(".route"));
   var links=[].slice.call(document.querySelectorAll(".navlinks a"));
+  /* Naslov i opis se mijenjaju po ruti (tab, povijest, dijeljenje linka).
+     Statički HTML zadržava naslov naslovnice jer su hash-rute za tražilice jedan URL. */
+  var META={
+    "/":["MALLOKKA — Marketing i social media agencija | Zadar","MALLOKKA je marketing i social media agencija iz Zadra specijalizirana za turizam i lokalne biznise — restorane, barove, apartmane i beauty salone. Preuzimamo cijeli marketing: od strategije do svakodnevnog sadržaja."],
+    "/usluge":["Usluge — vođenje mreža, strategija, oglasi i sadržaj | MALLOKKA","Šest usluga za lokalne biznise: upravljanje društvenim mrežama, marketinška strategija, oglasi i promocija, copywriting i izrada sadržaja, brendiranje te 1:1 edukacije."],
+    "/paketi":["Paketi i cijene — Growth, Pro i Premium | MALLOKKA","Mjesečni paketi od 520 € do 1.250 €: što je uključeno, kako teče suradnja, što nije u cijeni i što dobivate uz svaki paket."],
+    "/proces":["Proces suradnje — od upoznavanja do izvještaja | MALLOKKA","Kako izgleda rad s nama: upoznavanje i ciljevi, strategija i kalendar, produkcija sadržaja, objave i mjesečni izvještaj."],
+    "/radovi":["Radovi i primjeri suradnje | MALLOKKA","Primjeri suradnje s lokalnim biznisima u Zadru: koktel bar, caffe bar i beauty studio — što je rađeno i koji su rezultati."],
+    "/faq":["Česta pitanja — cijene, rokovi i suradnja | MALLOKKA","Odgovori na najčešća pitanja: što je uključeno u pakete, koliki su rokovi, kako ide otkazivanje i što nam treba od vas."],
+    "/kontakt":["Kontakt — besplatne konzultacije | MALLOKKA","Javite se za besplatne konzultacije: e-mail, telefon i WhatsApp, Instagram ili obrazac na stranici. Radimo u Zadru i okolici."],
+    "/o-nama":["O nama — Karla Mišlov | MALLOKKA","Karla Mišlov, osnivačica Mallokke: marketing i social media za turizam i lokalne biznise u Zadru — od strategije do objava."],
+    "/sezona":["Sezonski plan objava i kampanja | MALLOKKA","Kako rasporediti objave i kampanje kroz godinu: priprema izvan sezone, produkcija prije gužve i vrhunac u srpnju i kolovozu."],
+    "/kalkulator":["Kalkulator paketa — koji paket vam odgovara | MALLOKKA","Odgovorite na tri pitanja o opsegu posla i dobit ćete procjenu koji paket odgovara vašim potrebama."],
+    "/impressum":["Impressum — podaci o pružatelju usluga | MALLOKKA","Obavezni podaci o obrtu MALLOKKA: naziv, vlasnica, adresa, OIB, kontakt i podaci o djelatnosti."],
+    "/privatnost":["Politika privatnosti (GDPR) | MALLOKKA","Kako MALLOKKA prikuplja, koristi i čuva osobne podatke, koja su vaša prava i kako ih ostvariti."],
+    "/uvjeti":["Uvjeti korištenja i pisani prigovori | MALLOKKA","Uvjeti korištenja stranice, pravila suradnje, način podnošenja pisanih prigovora i izvansudsko rješavanje sporova."],
+    "/kolacici":["Politika kolačića | MALLOKKA","Koje kolačiće stranica koristi, čemu služe i kako ih možete odbiti ili izbrisati."]
+  };
+  function setMeta(h){
+    var m=META[h]||META["/"];
+    document.title=m[0];
+    var d=document.querySelector('meta[name="description"]');
+    if(d)d.setAttribute("content",m[1]);
+    var ogt=document.querySelector('meta[property="og:title"]'); if(ogt)ogt.setAttribute("content",m[0]);
+    var ogd=document.querySelector('meta[property="og:description"]'); if(ogd)ogd.setAttribute("content",m[1]);
+  }
+
   function render(){
     var h=(location.hash||"#/").replace(/^#/,"");
     if(h.charAt(0)!=="/") h="/"+h;
     if(ROUTES.indexOf(h)===-1) h="/";
     document.documentElement.setAttribute("data-mk-route",h);   /* drži u sinkronizaciji s CSS-om */
+    setMeta(h);
     views.forEach(function(v){v.classList.toggle("active",v.getAttribute("data-route")===h);});
     links.forEach(function(a){a.classList.toggle("on",a.getAttribute("data-r")===h);});
     var t=document.querySelector('.route[data-route="'+h+'"]');
