@@ -127,7 +127,8 @@ header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--p
 :root[data-theme="dark"] .brand img{filter:invert(1)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand img{filter:invert(1)}}
 .brand b{font-family:'Fraunces',Georgia,serif;font-variation-settings:'opsz' 144,'SOFT' 100,'WONK' 1;font-weight:900;font-size:19px;letter-spacing:.01em}
-.navlinks{display:flex;gap:3px;align-items:center;flex-wrap:wrap}
+.navlinks{display:flex;gap:3px;align-items:center;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;max-width:100%;scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{flex:0 0 auto}
 .navlinks a{text-decoration:none;font-size:13.5px;font-weight:500;color:var(--ink-2);padding:7px 12px;border-radius:30px;transition:background .18s,color .18s}
 .navlinks a:hover{background:var(--surface-2);color:var(--ink)}
 .navlinks a.on{background:var(--blue-solid);color:var(--on-blue);font-weight:600}
@@ -781,7 +782,7 @@ footer.ft{border-top:1px solid var(--line);background:var(--surface-2)}
     <a href="mailto:mallokka.agency@gmail.com">mallokka.agency@gmail.com</a><br>
     <a href="https://wa.me/385917916536">091 7916 536</a> · <a href="https://www.instagram.com/mallokka.agency">@mallokka.agency</a></small></div>
   <div><small><strong style="color:var(--ink-2)">Pravno</strong><br>
-    <a href="#/impressum">Impressum</a> · <a href="#/privatnost">Privatnost</a> · <a href="#/uvjeti">Uvjeti</a> · <a href="#/kolacici">Kolačići</a><br><span style="opacity:.85">© 2026 MALLOKKA · Sva prava pridržana.</span></small></div>
+    <a href="#/impressum">Impressum</a> · <a href="#/privatnost">Privatnost</a> · <a href="#/uvjeti">Uvjeti</a> · <a href="#/kolacici">Kolačići</a><br><span>© 2026 MALLOKKA · Sva prava pridržana.</span></small></div>
 </div></footer>
 
 <script>
