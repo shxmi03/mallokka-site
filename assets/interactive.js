@@ -38,7 +38,7 @@
     },
     premium: {
       nm: "Premium", pr: "1.250 €", sel: "Premium — 1.250 €/mj.",
-      desc: "Kompletna marketinška podrška i prepuštanje brige o mrežama stručnjacima.",
+      desc: "Kompletna marketinška podrška i potpuno prepuštanje brige o mrežama.",
       inc: ["20+ objava mjesečno", "Svakodnevni story sadržaj", "Postavljanje i vođenje oglasa", "Izrada mjesečne strategije", "Mjesečne konzultacije", "Detaljno izvještavanje"]
     }
   };
@@ -219,7 +219,7 @@
         '<ul class="mk-calc-inc">' + p.inc.map(function (i) { return "<li>" + i + "</li>"; }).join("") + '</ul>' +
         (spread >= 2 ? '<p class="mk-calc-note">Odgovori se razlikuju u opsegu — možda je bolji <strong>custom paket</strong>; javite se za procjenu.</p>' : '') +
         '<div class="mk-calc-cta"><a class="btn btn-p" href="#/kontakt" data-pkg="' + p.sel + '">Zatraži ponudu za ' + p.nm + '</a>' +
-        '<span class="mk-calc-hint">Polje „paket“ u obrascu se ispuni automatski.</span></div>';
+        '<span class="mk-calc-hint">Polje „paket“ u obrascu ispunit će se automatski.</span></div>';
     }
 
     function init() {
