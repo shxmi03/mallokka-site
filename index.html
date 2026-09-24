@@ -174,10 +174,10 @@ html.mk-reveal .media.is-in{opacity:1;transform:none;transition:opacity .7s cubi
 
 section.band{padding:62px 0}
 .sec-head{margin-bottom:32px;max-width:70ch}
-.sec-head h2{font-size:clamp(29px,3.8vw,44px);margin:9px 0 12px}
+.sec-head h1,.sec-head h2{font-size:clamp(29px,3.8vw,44px);margin:9px 0 12px}
 .blue-band{background:var(--blue-solid);color:var(--on-blue)}
 .blue-band .eyebrow{color:color-mix(in srgb,var(--on-blue) 85%,transparent)}
-.blue-band h2,.blue-band h3{color:var(--on-blue)}
+.blue-band h1,.blue-band h2,.blue-band h3{color:var(--on-blue)}
 .blue-band .body,.blue-band .lead{color:color-mix(in srgb,var(--on-blue) 84%,transparent)}
 .blue-band .tick li{color:color-mix(in srgb,var(--on-blue) 88%,transparent)}
 .blue-band .tick li::before{background:var(--on-blue);opacity:.5}
@@ -185,7 +185,7 @@ section.band{padding:62px 0}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:23px}
-.card h3{font-size:19px;margin-bottom:9px}
+.card h2,.card h3{font-size:19px;margin-bottom:9px}
 .card .body{font-size:14px}
 .tick{list-style:none;padding:0;margin:13px 0 0;display:flex;flex-direction:column;gap:8px}
 .tick li{font-size:13.5px;color:var(--ink-2);padding-left:19px;position:relative;line-height:1.5}
@@ -194,7 +194,7 @@ section.band{padding:62px 0}
 .svc{border-top:1px solid var(--line)}
 .svc-row{display:grid;grid-template-columns:36px minmax(200px,250px) minmax(0,1fr);gap:24px;padding:21px 0;border-bottom:1px solid var(--line);align-items:start}
 .svc-row .idx{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:5px}
-.svc-row h3{font-size:19px} .svc-row .body{font-size:14px}
+.svc-row h2,.svc-row h3{font-size:19px} .svc-row .body{font-size:14px}
 
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;align-items:start}
 .tier{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:27px;display:flex;flex-direction:column}
@@ -214,7 +214,7 @@ section.band{padding:62px 0}
 .case{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;align-items:stretch}
 .case .media{border:none;border-radius:0;box-shadow:none;height:100%}
 .case-body{padding:32px}
-.case-body h3{font-size:26px;margin:9px 0 12px}
+.case-body h2,.case-body h3{font-size:26px;margin:9px 0 12px}
 .client-row{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:20px}
 .client{background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:21px}
 .client .cn{font-family:'Fraunces',Georgia,serif;font-variation-settings:'opsz' 144,'SOFT' 100,'WONK' 1;font-weight:900;font-size:18px}
@@ -260,7 +260,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
   .svc{border-top:0;display:flex;flex-direction:column;gap:12px}
   .svc-row{grid-template-columns:1fr;gap:0;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:22px 20px}
   .svc-row .idx{justify-self:center;margin:0 0 11px;padding:3px 11px;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--blue-deep);border:1px solid var(--line);border-radius:20px}
-  .svc-row h3{margin-bottom:9px}
+  .svc-row h2,.svc-row h3{margin-bottom:9px}
   .svc-row .body{grid-column:auto;max-width:44ch;margin:0 auto}
   .nav-in{flex-wrap:wrap;gap:10px} .navcta{display:none}
 }
@@ -350,12 +350,14 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 .about-photo::after{content:"";position:absolute;left:-14px;top:-14px;width:44%;height:38%;background:var(--pink);opacity:.5;border-radius:22px;z-index:-1}
 .about .sig{font-family:'Fraunces',Georgia,serif;font-variation-settings:'opsz' 144,'WONK' 1;font-weight:900;font-size:24px;line-height:1}
 .about .cred{font-size:13px;color:var(--muted);margin-top:3px}
+.about h1{font-size:24px} /* isti izgled kao dosadasnji h2 (24px iz UA defaulta) */
 .about .chips{margin-top:20px}
 @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:26px;max-width:520px;margin:0 auto}.about-photo{max-width:290px}}
 </style>
 <style>
 .legal .wrap{max-width:840px}
-.legal h2{font-size:clamp(26px,3.4vw,40px);margin-bottom:6px}
+.legal h1{font-size:clamp(26px,3.4vw,40px);margin-bottom:6px}
+.legal h2{font-size:19px;margin:28px 0 8px}
 .legal h3{font-size:19px;margin:28px 0 8px}
 .legal p,.legal li{font-size:15px;line-height:1.72;color:var(--ink-2)}
 .legal ul{padding-left:20px;display:flex;flex-direction:column;gap:6px;margin:10px 0}
@@ -472,16 +474,16 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 
 <div class="route" data-route="/usluge">
   <section class="band"><div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Usluge</span><h2>Što radim</h2>
+    <div class="sec-head"><span class="eyebrow">Usluge</span><h1>Što radim</h1>
       <p class="lead">Kroz kombinaciju strategije, kreativnosti i analize pomažem brendovima izgraditi snažnu online prisutnost i ostvariti konkretne rezultate.</p></div>
     <div class="media r169" style="margin-bottom:36px"><img src="assets/media/produkcija.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Fotoaparat s remenom na isprintanim fotografijama — produkcija sadržaja"></div>
     <div class="svc">
-      <div class="svc-row"><div class="idx tnum">01</div><div><h3>Upravljanje društvenim mrežama</h3></div><div><p class="body">Planiranje, kreiranje i objavljivanje vizualno dosljednog sadržaja te svakodnevna komunikacija s publikom, uz mjesečno praćenje rezultata za kontinuirani rast brenda.</p></div></div>
-      <div class="svc-row"><div class="idx tnum">02</div><div><h3>Marketinška strategija</h3></div><div><p class="body">Detaljna analiza trenutnog stanja i tržišta te definiranje jasnih ciljeva, plana komunikacije i sezonskih kampanja prilagođenih vašem poslovanju.</p></div></div>
-      <div class="svc-row"><div class="idx tnum">03</div><div><h3>Oglašavanje i promocija</h3></div><div><p class="body">Strateško planiranje i provođenje digitalnih kampanja (Meta oglasi), ali i tradicionalnih metoda poput letaka i plakata, za sveobuhvatnu vidljivost brenda.</p></div></div>
-      <div class="svc-row"><div class="idx tnum">04</div><div><h3>Copywriting i izrada sadržaja</h3></div><div><p class="body">Pisanje uvjerljivih tekstova za objave, blogove i newslettere te osmišljavanje vizuala i fotografija koji privlače i zadržavaju pažnju vaše ciljne publike.</p></div></div>
-      <div class="svc-row"><div class="idx tnum">05</div><div><h3>Brendiranje i vizualni identitet</h3></div><div><p class="body">Razvoj ili osvježavanje identiteta brenda kroz strategiju, dizajn logotipa, definiciju boja, tipografije i komunikacijskog smjera.</p></div></div>
-      <div class="svc-row"><div class="idx tnum">06</div><div><h3>Edukacije i konzultacije</h3></div><div><p class="body">Individualno 1:1 savjetovanje, analiza postojećih kanala te edukacije i izrada strategije za vlasnike biznisa koji žele samostalno voditi svoje mreže.</p></div></div>
+      <div class="svc-row"><div class="idx tnum">01</div><div><h2>Upravljanje društvenim mrežama</h2></div><div><p class="body">Planiranje, kreiranje i objavljivanje vizualno dosljednog sadržaja te svakodnevna komunikacija s publikom, uz mjesečno praćenje rezultata za kontinuirani rast brenda.</p></div></div>
+      <div class="svc-row"><div class="idx tnum">02</div><div><h2>Marketinška strategija</h2></div><div><p class="body">Detaljna analiza trenutnog stanja i tržišta te definiranje jasnih ciljeva, plana komunikacije i sezonskih kampanja prilagođenih vašem poslovanju.</p></div></div>
+      <div class="svc-row"><div class="idx tnum">03</div><div><h2>Oglašavanje i promocija</h2></div><div><p class="body">Strateško planiranje i provođenje digitalnih kampanja (Meta oglasi), ali i tradicionalnih metoda poput letaka i plakata, za sveobuhvatnu vidljivost brenda.</p></div></div>
+      <div class="svc-row"><div class="idx tnum">04</div><div><h2>Copywriting i izrada sadržaja</h2></div><div><p class="body">Pisanje uvjerljivih tekstova za objave, blogove i newslettere te osmišljavanje vizuala i fotografija koji privlače i zadržavaju pažnju vaše ciljne publike.</p></div></div>
+      <div class="svc-row"><div class="idx tnum">05</div><div><h2>Brendiranje i vizualni identitet</h2></div><div><p class="body">Razvoj ili osvježavanje identiteta brenda kroz strategiju, dizajn logotipa, definiciju boja, tipografije i komunikacijskog smjera.</p></div></div>
+      <div class="svc-row"><div class="idx tnum">06</div><div><h2>Edukacije i konzultacije</h2></div><div><p class="body">Individualno 1:1 savjetovanje, analiza postojećih kanala te edukacije i izrada strategije za vlasnike biznisa koji žele samostalno voditi svoje mreže.</p></div></div>
     </div>
     <div class="sec-head" style="margin-top:46px"><span class="eyebrow">Dodatne usluge</span><h2 style="font-size:30px">Kad treba više od mreža</h2></div>
     <div class="grid-2">
@@ -495,7 +497,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 
 <div class="route" data-route="/paketi">
   <section class="band"><div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Paketi</span><h2>Tri paketa i custom opcija</h2>
+    <div class="sec-head"><span class="eyebrow">Paketi</span><h1>Tri paketa i custom opcija</h1>
       <p class="lead">Prvi mjesec suradnje je probni. Nakon toga ugovor ide na minimalno tri mjeseca, uz otkazni rok od 30 dana. Cijene su mjesečne, iskazane u eurima i konačne — obrt nije u sustavu PDV-a, pa se PDV ne obračunava. U cijenu nije uključen budžet za oglašavanje.</p></div>
     <div class="tiers">
       <div class="tier">
@@ -517,12 +519,12 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
     </div>
     <div class="grid-2" style="margin-top:28px">
       <div class="card" style="background:var(--blue-tint);border-color:var(--blue-solid)">
-        <h3>Custom paket</h3>
+        <h2>Custom paket</h2>
         <p class="body">Niste sigurni koji paket odabrati ili vam treba drugačiji opseg? Svaki je biznis priča za sebe, pa pakete i usluge prilagođavam vašim potrebama i budžetu.</p>
         <div class="cta" style="margin-top:16px"><a class="btn btn-p" href="#/kontakt">Dogovori razgovor</a></div>
       </div>
       <div class="card">
-        <h3>Što nije uključeno u cijenu</h3>
+        <h2>Što nije uključeno u cijenu</h2>
         <ul class="tick">
           <li>Budžet za oglašavanje</li><li>Profesionalno fotografiranje i produkcija</li>
           <li>Tisak</li><li>Troškovi alata i pretplata</li>
@@ -535,11 +537,11 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 
 <div class="route" data-route="/proces">
   <section class="band"><div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Proces</span><h2>Pet koraka, svaki mjesec isti</h2>
+    <div class="sec-head"><span class="eyebrow">Proces</span><h1>Pet koraka, svaki mjesec isti</h1>
       <p class="lead">Zbog toga u svakom trenutku znate u kojoj je fazi vaš sadržaj i kada se od vas nešto traži.</p></div>
     <div class="grid-2" style="align-items:start;gap:32px">
       <div class="media r43"><img src="assets/media/proces.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Laptopi i kava na radnom stolu tijekom planiranja mjeseca"></div>
-      <div class="card"><h3>Što trebam od vas</h3>
+      <div class="card"><h2>Što trebam od vas</h2>
         <ul class="tick">
           <li>Administratorske pristupe profilima</li>
           <li>Materijale najkasnije do 20. u mjesecu za idući mjesec</li>
@@ -564,13 +566,13 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 
 <div class="route" data-route="/radovi">
   <section class="band"><div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Radovi</span><h2>Odabrani projekti</h2><p class="lead" style="margin-top:10px">Nazivi klijenata izostavljeni su na njihov zahtjev — prikazan je pristup i način rada.</p>
+    <div class="sec-head"><span class="eyebrow">Radovi</span><h1>Odabrani projekti</h1><p class="lead" style="margin-top:10px">Nazivi klijenata izostavljeni su na njihov zahtjev — prikazan je pristup i način rada.</p>
       <p class="lead">Opis odrađenog posla, bez izmišljenih brojki. Konkretne rezultate klijenata pokazujem na sastanku.</p></div>
     <div class="case">
       <div class="media r43"><img src="assets/media/koktel-sank.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Šank koktel bara s policama pića u toplom svjetlu"></div>
       <div class="case-body">
         <span class="eyebrow">Koktel bar · Zadar</span>
-        <h3>Sezonski event kao okosnica mjeseca</h3>
+        <h2>Sezonski event kao okosnica mjeseca</h2>
         <p class="body">Koktel bar želio je događaj koji bi ga izdvojio od ostalih u gradu. Osmislili smo tematski event i oko njega složili cijeli mjesec sadržaja.</p>
         <ul class="tick">
           <li>Jasan „hook“ koji gostima daje razlog da dođu</li>
@@ -590,7 +592,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 
 <div class="route" data-route="/faq">
   <section class="band"><div class="wrap">
-    <div class="sec-head"><span class="eyebrow">FAQ</span><h2>Česta pitanja</h2></div>
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h1>Česta pitanja</h1></div>
     <div class="faq">
       <details open><summary><span class="q">01</span>Koliko traje izrada strategije i početak rada?</summary><div class="a">Izrada strategije i mjesečnog plana traje u prosjeku 5–7 radnih dana. Plan objava dostavljam na odobrenje prije početka mjeseca, da osiguramo kontinuitet i dosljednost komunikacije.</div></details>
       <details><summary><span class="q">02</span>Mogu li vidjeti objave prije nego odu online i tražiti izmjene?</summary><div class="a">Naravno. Svaki mjesec šaljem plan objava na uvid, a u cijenu paketa uključena su 2 kruga revizija po objavi. Važno je samo da kalendar pregledate u roku od 72 sata. Ako se ne očitujete, plan se smatra odobrenim i nastavljam s objavama kako ne bismo remetili kontinuitet profila.</div></details>
@@ -606,7 +608,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 
 <div class="route" data-route="/kontakt">
   <section class="band"><div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Kontakt</span><h2>Izgradimo vaš brend zajedno</h2>
+    <div class="sec-head"><span class="eyebrow">Kontakt</span><h1>Izgradimo vaš brend zajedno</h1>
       <p class="lead">Marketing u turizmu danas nije opcija — on je temelj uspješne sezone. Javite se i dogovorimo uvodni razgovor o vašim ciljevima.</p></div>
     <div class="grid-2" style="gap:36px;align-items:start">
       <form class="form" id="contactForm">
@@ -629,7 +631,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
           <div><div class="k">Područje</div><div class="v">Zadar i okolica</div></div>
         </div>
         <div class="card" style="margin-top:24px;background:var(--blue-tint);border-color:var(--blue-solid)">
-          <h3>Besplatne konzultacije</h3>
+          <h2>Besplatne konzultacije</h2>
           <p class="body">15 minuta, bez obveze. Prođemo profil, ciljeve i realan opseg posla.</p>
           <div class="cta" style="margin-top:15px"><a class="btn btn-p" href="https://docs.google.com/forms/d/e/1FAIpQLSfbgf2ZFNRHmsoUIoQ9r-b8NOT3WmmexE3QbLdnl7r5P90agg/viewform">Prijavi se za termin</a></div>
         </div>
@@ -646,7 +648,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
       <div class="about-photo"><img src="assets/karla-cutout.webp" width="405" height="680" loading="lazy" decoding="async" alt="Karla Mišlov, osnivačica marketing agencije Mallokka iz Zadra"></div>
       <div class="about">
         <span class="eyebrow">Upoznaj osnivačicu</span>
-        <h2 style="margin:9px 0 14px">Iza Mallokke stojim ja — Karla.</h2>
+        <h1 style="margin:9px 0 14px">Iza Mallokke stojim ja — Karla.</h1>
         <p class="lead">„Pomažem brendovima da na društvenim mrežama ne budu samo prisutni, nego prepoznatljivi.“</p>
         <p class="body" style="margin-top:16px">Ja sam Karla Mišlov, osnivačica Mallokke i vaša osoba za marketing. Mallokku sam pokrenula s jednostavnim ciljem: donijeti lokalnim biznisima — restoranima, barovima, apartmanima i beauty salonima — marketing kakav inače imaju samo veliki brendovi.</p>
         <p class="body" style="margin-top:12px">Preuzimam cijeli posao oko društvenih mreža — od strategije i izrade sadržaja do snimanja i objavljivanja — kako biste vi imali više gostiju, a manje brige oko profila. Radim posvećeno, s pažnjom na detalje i pravi ton svakog brenda.</p>
@@ -665,7 +667,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 <div class="route" data-route="/sezona">
   <section class="band"><div class="wrap">
     <div class="sec-head"><span class="eyebrow">Sezonalnost</span>
-      <h2>Marketing u turizmu nije ravan. Ni vaš plan ne bi trebao biti.</h2>
+      <h1>Marketing u turizmu nije ravan. Ni vaš plan ne bi trebao biti.</h1>
       <p class="lead" style="margin-top:10px">Zadarska sezona diže se od svibnja i kulminira u srpnju i kolovozu. Prijeđite mišem ili prstom preko mjeseca da vidite što se u kojem dijelu godine konkretno radi — planiranje počinje mnogo prije prve gužve.</p></div>
     <div class="mk-chart" id="season-plot">
       <div class="mk-tip" id="season-tip" role="status" aria-live="polite">
@@ -690,7 +692,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 <div class="route" data-route="/kalkulator">
   <section class="band"><div class="wrap">
     <div class="sec-head"><span class="eyebrow">Kalkulator paketa</span>
-      <h2>Izaberite opseg. Ostalo je moj posao.</h2>
+      <h1>Izaberite opseg. Ostalo je moj posao.</h1>
       <p class="lead" style="margin-top:10px">Tri kratka pitanja i predložit ću paket koji odgovara vašem opsegu rada. Predloženi paket možete odmah poslati kao upit — polje za paket u obrascu ispunit će se automatski.</p></div>
     <div class="mk-calc" id="calc">
       <div class="mk-calc-q">
@@ -722,7 +724,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 <div class="route legal" data-route="/impressum">
   <section class="band"><div class="wrap">
     <span class="eyebrow">Pravno</span>
-    <h2>Impressum</h2>
+    <h1>Impressum</h1>
     <p class="body">Podaci o pružatelju usluga sukladno Zakonu o elektroničkoj trgovini (čl. 5) i Zakonu o obrtu.</p>
     <dl class="kv2">
       <dt>Naziv obrta</dt><dd>MALLOKKA (paušalni obrt)</dd>
@@ -734,9 +736,9 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
       <dt>Telefon / WhatsApp</dt><dd><a href="https://wa.me/385917916536">091 7916 536</a></dd>
       <dt>Instagram</dt><dd><a href="https://www.instagram.com/mallokka.agency" target="_blank" rel="noopener">@mallokka.agency</a></dd>
     </dl>
-    <h3>Porezni status</h3>
+    <h2>Porezni status</h2>
     <p>Obrt nije u sustavu PDV-a (paušalno oporezivanje dohotka). PDV se ne obračunava na temelju čl. 90. st. 2. Zakona o PDV-u.</p>
-    <h3>Registracija</h3>
+    <h2>Registracija</h2>
     <p>Obrt je upisan u Obrtni registar Republike Hrvatske, koji vodi nadležno upravno tijelo putem servisa START.</p>
     <p class="upd">Zadnje ažuriranje: rujan 2026.</p>
   </div></section>
@@ -745,38 +747,38 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 <div class="route legal" data-route="/privatnost">
   <section class="band"><div class="wrap">
     <span class="eyebrow">Pravno</span>
-    <h2>Politika privatnosti</h2>
+    <h1>Politika privatnosti</h1>
     <p class="body">Ova Politika objašnjava kako obrt MALLOKKA obrađuje osobne podatke sukladno Općoj uredbi o zaštiti podataka (GDPR) i Zakonu o provedbi Opće uredbe o zaštiti podataka (NN 42/2018).</p>
 
-    <h3>1. Voditelj obrade</h3>
+    <h2>1. Voditelj obrade</h2>
     <p>MALLOKKA, obrt, Ferde Šišića 1, 23000 Zadar, OIB 01570903076. Kontakt za sva pitanja o zaštiti podataka: <a href="mailto:mallokka.agency@gmail.com">mallokka.agency@gmail.com</a>.</p>
 
-    <h3>2. Koje podatke prikupljamo</h3>
+    <h2>2. Koje podatke prikupljamo</h2>
     <ul>
       <li><strong>Podaci iz upita:</strong> ime i naziv objekta, e-mail adresa, odabrani paket i sadržaj poruke koje nam pošaljete putem kontakt forme ili e-maila.</li>
       <li><strong>Tehnički podaci:</strong> osnovni podaci koje standardno bilježi web poslužitelj (npr. IP adresa, vrijeme pristupa) radi sigurnosti i rada stranice.</li>
       <li><strong>Postavke stranice:</strong> lokalno spremljena preferencija teme (svijetlo/tamno) — pohranjena u vašem pregledniku, ne šalje se nama.</li>
     </ul>
 
-    <h3>3. Svrhe i pravna osnova obrade</h3>
+    <h2>3. Svrhe i pravna osnova obrade</h2>
     <ul>
       <li><strong>Odgovor na upit i priprema ponude</strong> — pravna osnova: poduzimanje radnji na vaš zahtjev prije sklapanja ugovora (čl. 6(1)(b) GDPR) te vaša privola dana slanjem upita.</li>
       <li><strong>Sigurnost i ispravan rad stranice</strong> — pravna osnova: legitiman interes (čl. 6(1)(f) GDPR).</li>
     </ul>
 
-    <h3>4. Kontakt forma</h3>
+    <h2>4. Kontakt forma</h2>
     <p>Kontakt forma na stranici otvara vaš e-mail program s već pripremljenom porukom — podatke nam šaljete izravno e-mailom. Podatke koje nam tako pošaljete koristimo isključivo za odgovor na vaš upit i eventualnu daljnju suradnju.</p>
 
-    <h3>5. Primatelji podataka</h3>
+    <h2>5. Primatelji podataka</h2>
     <p>Osobne podatke ne prodajemo niti ustupamo trećima u marketinške svrhe. Podaci mogu biti obrađeni kod pružatelja usluga koje koristimo za poslovanje (npr. pružatelj e-mail usluge / Google Workspace, pružatelj web hostinga), isključivo u opsegu nužnom za pružanje usluge i uz odgovarajuće zaštitne mjere.</p>
 
-    <h3>6. Rok čuvanja</h3>
+    <h2>6. Rok čuvanja</h2>
     <p>Podatke iz upita čuvamo dok traje komunikacija i dok je to potrebno za odgovor odnosno suradnju, a najduže onoliko koliko nalažu porezni i drugi propisi za dokumentaciju o poslovanju. Nakon toga podaci se brišu ili anonimiziraju.</p>
 
-    <h3>7. Vaša prava</h3>
+    <h2>7. Vaša prava</h2>
     <p>Imate pravo na pristup, ispravak, brisanje, ograničenje obrade, prigovor na obradu te prenosivost podataka. Zahtjev možete poslati na <a href="mailto:mallokka.agency@gmail.com">mallokka.agency@gmail.com</a>. Također imate pravo podnijeti pritužbu nadzornom tijelu — Agenciji za zaštitu osobnih podataka (AZOP), Selska cesta 136, 10000 Zagreb, <a href="https://azop.hr" target="_blank" rel="noopener">azop.hr</a>.</p>
 
-    <h3>8. Automatizirano odlučivanje</h3>
+    <h2>8. Automatizirano odlučivanje</h2>
     <p>Ne provodimo automatizirano donošenje odluka ni profiliranje s pravnim učinkom na pojedinca.</p>
 
     <p class="upd">Zadnje ažuriranje: rujan 2026.</p>
@@ -786,16 +788,16 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 <div class="route legal" data-route="/uvjeti">
   <section class="band"><div class="wrap">
     <span class="eyebrow">Pravno</span>
-    <h2>Uvjeti korištenja</h2>
+    <h1>Uvjeti korištenja</h1>
     <p class="body">Ovi Uvjeti odnose se na korištenje web stranice MALLOKKA. Korištenjem stranice prihvaćate ove Uvjete.</p>
 
-    <h3>1. O stranici</h3>
+    <h2>1. O stranici</h2>
     <p>Stranicu vodi obrt MALLOKKA (podaci u <a href="#/impressum">Impressumu</a>). Sadržaj stranice informativne je naravi i može se mijenjati bez prethodne najave.</p>
 
-    <h3>2. Intelektualno vlasništvo</h3>
+    <h2>2. Intelektualno vlasništvo</h2>
     <p>Svi materijali na stranici — tekstovi, dizajn, logotip, fotografije, videozapisi i grafički elementi — vlasništvo su obrta MALLOKKA odnosno se koriste uz odgovarajuće pravo, te su zaštićeni propisima o autorskom i srodnim pravima. Nije ih dopušteno preuzimati, umnožavati ni koristiti bez pisanog odobrenja.</p>
 
-    <h3>3. Usluge i suradnja s klijentima</h3>
+    <h2>3. Usluge i suradnja s klijentima</h2>
     <p>Prikazane usluge i paketi (Growth, Pro, Premium) informativni su i ne predstavljaju obvezujuću ponudu. Konkretni opseg, cijena i rokovi definiraju se ponudom i ugovorom o suradnji. Na suradnju s klijentima primjenjuju se Opći uvjeti i pravila suradnje agencije MALLOKKA, čije su ključne odredbe:</p>
     <ul>
       <li>u cijenu mjesečnog paketa uključene su do <strong>2 revizije</strong> po objavi; dodatne izmjene naplaćuju se prema satnici <strong>70 € / sat</strong>;</li>
@@ -806,10 +808,10 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
       <li>agencija ne jamči točan broj pratitelja, rezervacija ni prihoda jer rezultati ovise i o tržištu, budžetu za oglase i angažmanu klijenta.</li>
     </ul>
 
-    <h3>4. Ograničenje odgovornosti</h3>
+    <h2>4. Ograničenje odgovornosti</h2>
     <p>MALLOKKA nastoji održavati točnost i dostupnost stranice, ali ne odgovara za eventualne pogreške, privremenu nedostupnost niti za sadržaj vanjskih stranica na koje vode poveznice.</p>
 
-    <h3>5. Pisani prigovori i izvansudsko rješavanje sporova</h3>
+    <h2>5. Pisani prigovori i izvansudsko rješavanje sporova</h2>
     <p>Pisani prigovor na pruženu uslugu ili na poslovanje obrta možete podnijeti:</p>
     <ul>
       <li>e-mailom na <a href="mailto:mallokka.agency@gmail.com">mallokka.agency@gmail.com</a>;</li>
@@ -820,7 +822,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
     <p>MALLOKKA nije obvezna, niti se obvezuje, rješavati potrošačke sporove pred tijelom za alternativno rješavanje potrošačkih sporova (ARPS). Ako se pojedini spor ne može riješiti pisanim prigovorom, u odgovoru na prigovor navest ćemo informacije o tijelima za ARPS, mogućnosti pokretanja postupka pred njima te hoće li se MALLOKKA u takav postupak upustiti.</p>
     <p>Platforma Europske unije za online rješavanje sporova (ODR) ukinuta je 20. srpnja 2025. i više nije u funkciji.</p>
 
-    <h3>6. Mjerodavno pravo</h3>
+    <h2>6. Mjerodavno pravo</h2>
     <p>Na ove Uvjete primjenjuje se pravo Republike Hrvatske. Za sporove je nadležan stvarno nadležni sud u Zadru. Ako je korisnik potrošač, prava koja mu pripadaju prema propisima o zaštiti potrošača ostaju neokrnjena ovim Uvjetima.</p>
 
     <p class="upd">Zadnje ažuriranje: rujan 2026.</p>
@@ -830,10 +832,10 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 <div class="route legal" data-route="/kolacici">
   <section class="band"><div class="wrap">
     <span class="eyebrow">Pravno</span>
-    <h2>Politika kolačića</h2>
+    <h1>Politika kolačića</h1>
     <p class="body">Objašnjavamo koje tehnologije pohrane koristi ova stranica, sukladno Zakonu o elektroničkim komunikacijama (ZEK) i GDPR-u.</p>
 
-    <h3>1. Koristimo samo nužne (funkcionalne) tehnologije</h3>
+    <h2>1. Koristimo samo nužne (funkcionalne) tehnologije</h2>
     <p>Ova stranica trenutno <strong>ne koristi</strong> marketinške ni analitičke kolačiće i ne prati vas kroz web. Koristimo isključivo lokalnu pohranu (localStorage) vašeg preglednika za nužne funkcije:</p>
     <ul>
       <li><strong>mk-theme</strong> — pamti odabir svijetle/tamne teme.</li>
@@ -841,10 +843,10 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
     </ul>
     <p>Ovi podaci ostaju u vašem pregledniku i ne šalju se nama niti trećim stranama.</p>
 
-    <h3>2. Ako u budućnosti uvedemo analitiku</h3>
+    <h2>2. Ako u budućnosti uvedemo analitiku</h2>
     <p>Ako dodamo alate poput mjerenja posjećenosti (npr. Google Analytics), oni će se učitati <strong>tek nakon vaše privole</strong> putem obavijesti o kolačićima, a ovu Politiku ćemo ažurirati.</p>
 
-    <h3>3. Upravljanje</h3>
+    <h2>3. Upravljanje</h2>
     <p>Postavke pohrane možete u svakom trenutku obrisati u postavkama svog preglednika. Brisanjem podataka stranice poništit ćete i zapamćene postavke (temu i privolu).</p>
 
     <p class="upd">Zadnje ažuriranje: rujan 2026.</p>
