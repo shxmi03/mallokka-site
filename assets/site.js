@@ -105,3 +105,26 @@ var CONTACT_EMAIL = "mallokka.agency@gmail.com";
   }, { rootMargin: "150px", threshold: 0.25 });
   vids.forEach(function (v) { io.observe(v); });
 })();
+
+/* ---------- medij: ulazak u kadar (jedan namjerni pokret sekcije) ----------
+   Zamjena za autoplay video. Klasa koja skriva medij (html.mk-reveal) postavlja
+   se SAMO ovdje: ako JS ne radi, IntersectionObserver ne postoji ili je ukljucen
+   prefers-reduced-motion, sve je vidljivo odmah i nista se ne skriva. */
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+  var blocks = [].slice.call(document.querySelectorAll(".media"));
+  if (!blocks.length) return;
+  document.documentElement.classList.add("mk-reveal");
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      // is-in i kad je element u kadru, i kad ga je brzi skrol vec prosao
+      // (top < 0) — inace bi brzi "fling" na mobitelu mogao ostaviti medij skriven
+      if (en.isIntersecting || en.boundingClientRect.top < 0) {
+        en.target.classList.add("is-in");
+        io.unobserve(en.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.12 });
+  blocks.forEach(function (b) { io.observe(b); });
+})();

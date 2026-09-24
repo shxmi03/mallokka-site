@@ -154,8 +154,14 @@ header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--p
 .hero h1{font-size:clamp(42px,6.3vw,80px);margin:14px 0 20px}
 .hero h1 em{font-style:normal;color:var(--blue-deep)}
 .media{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--surface-2)}
-.media video{width:100%;height:100%;object-fit:cover;display:block}
+.media video,.media img{width:100%;height:100%;object-fit:cover;display:block}
 .r169{aspect-ratio:16/9} .r43{aspect-ratio:4/3}
+/* Medij: jedan namjerni pokret sekcije (zamjena za autoplay video).
+   Sadrzaj je vidljiv po defaultu — skriva se SAMO ako je JS pokrenut i
+   IntersectionObserver postoji (html.mk-reveal); bez JS-a nista se ne skriva. */
+html.mk-reveal .media{opacity:0;transform:translateY(1.25rem)}
+html.mk-reveal .media.is-in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+@media (prefers-reduced-motion:reduce){html.mk-reveal .media{opacity:1;transform:none}}
 .cta{display:flex;gap:11px;flex-wrap:wrap;margin-top:24px}
 .btn{text-decoration:none;font-size:14.5px;font-weight:600;padding:13px 23px;border-radius:34px;display:inline-block;transition:transform .18s}
 .btn-p{background:var(--ink);color:var(--paper)} .btn-p:hover{transform:translateY(-2px)}
@@ -410,7 +416,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
           <a class="btn btn-s" href="#/paketi">Pogledaj pakete</a>
         </div>
       </div>
-      <div class="media r169"><video muted loop playsinline preload="none" aria-label="Radni stol s isprintanim fotografijama i mobitelom" poster="assets/media/stol-fotografije-poster.webp" src="assets/media/stol-fotografije.mp4"></video></div>
+      <div class="media r169"><img src="assets/media/radni-stol.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Ruke tipkaju na laptopu uz biljku na radnom stolu"></div>
     </div></div>
   </section>
 
@@ -445,7 +451,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
         <p class="body" style="margin-top:16px;color:inherit">Kroz rad s brojnim klijentima naučila sam jedno: dobra prisutnost na mrežama nije samo lijep feed — to je komunikacija koja donosi rezultate.</p>
         <p style="margin-top:20px;font-weight:600;font-size:15px">Karla Mišlov, univ. bacc. turism. cult.</p>
       </div>
-      <div class="media r43"><video muted loop playsinline preload="none" aria-label="Planiranje mjesečnog kalendara objava s papirićima" poster="assets/media/kalendar-objava-poster.webp" src="assets/media/kalendar-objava.mp4"></video></div>
+      <div class="media r43"><img src="assets/media/planiranje.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Ruke drže mobitel nad laptopom dok se planira sadržaj"></div>
     </div>
   </div></section>
 
@@ -468,7 +474,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
   <section class="band"><div class="wrap">
     <div class="sec-head"><span class="eyebrow">Usluge</span><h2>Što radim</h2>
       <p class="lead">Kroz kombinaciju strategije, kreativnosti i analize pomažem brendovima izgraditi snažnu online prisutnost i ostvariti konkretne rezultate.</p></div>
-    <div class="media r169" style="margin-bottom:36px"><video muted loop playsinline preload="none" aria-label="Snimanje jela mobitelom na stativu tijekom produkcije sadržaja" poster="assets/media/produkcija-jela-poster.webp" src="assets/media/produkcija-jela.mp4"></video></div>
+    <div class="media r169" style="margin-bottom:36px"><img src="assets/media/produkcija.webp" width="1600" height="900" loading="lazy" decoding="async" alt="Fotoaparat s remenom na isprintanim fotografijama — produkcija sadržaja"></div>
     <div class="svc">
       <div class="svc-row"><div class="idx tnum">01</div><div><h3>Upravljanje društvenim mrežama</h3></div><div><p class="body">Planiranje, kreiranje i objavljivanje vizualno dosljednog sadržaja te svakodnevna komunikacija s publikom, uz mjesečno praćenje rezultata za kontinuirani rast brenda.</p></div></div>
       <div class="svc-row"><div class="idx tnum">02</div><div><h3>Marketinška strategija</h3></div><div><p class="body">Detaljna analiza trenutnog stanja i tržišta te definiranje jasnih ciljeva, plana komunikacije i sezonskih kampanja prilagođenih vašem poslovanju.</p></div></div>
@@ -532,7 +538,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
     <div class="sec-head"><span class="eyebrow">Proces</span><h2>Pet koraka, svaki mjesec isti</h2>
       <p class="lead">Zbog toga u svakom trenutku znate u kojoj je fazi vaš sadržaj i kada se od vas nešto traži.</p></div>
     <div class="grid-2" style="align-items:start;gap:32px">
-      <div class="media r43"><video muted loop playsinline preload="none" aria-label="Planiranje mjesečnog kalendara objava s papirićima" poster="assets/media/kalendar-objava-poster.webp" src="assets/media/kalendar-objava.mp4"></video></div>
+      <div class="media r43"><img src="assets/media/proces.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Laptopi i kava na radnom stolu tijekom planiranja mjeseca"></div>
       <div class="card"><h3>Što trebam od vas</h3>
         <ul class="tick">
           <li>Administratorske pristupe profilima</li>
@@ -561,7 +567,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
     <div class="sec-head"><span class="eyebrow">Radovi</span><h2>Odabrani projekti</h2><p class="lead" style="margin-top:10px">Nazivi klijenata izostavljeni su na njihov zahtjev — prikazan je pristup i način rada.</p>
       <p class="lead">Opis odrađenog posla, bez izmišljenih brojki. Konkretne rezultate klijenata pokazujem na sastanku.</p></div>
     <div class="case">
-      <div class="media r43"><video muted loop playsinline preload="none" aria-label="Koktel s laticom ruže na šanku i bakreni barski pribor" poster="assets/media/koktel-sank-poster.webp" src="assets/media/koktel-sank.mp4"></video></div>
+      <div class="media r43"><img src="assets/media/koktel-sank.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Šank koktel bara s policama pića u toplom svjetlu"></div>
       <div class="case-body">
         <span class="eyebrow">Koktel bar · Zadar</span>
         <h3>Sezonski event kao okosnica mjeseca</h3>
