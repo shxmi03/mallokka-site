@@ -220,6 +220,8 @@ section.band{padding:62px 0}
 .client .cn{font-family:'Fraunces',Georgia,serif;font-variation-settings:'opsz' 144,'SOFT' 100,'WONK' 1;font-weight:900;font-size:18px}
 .client .cs{font-size:12.5px;color:var(--muted);margin-top:3px}
 .client .cb{font-size:13.5px;color:var(--ink-2);margin-top:10px;line-height:1.55}
+.client .client-media{border-radius:13px;overflow:hidden;aspect-ratio:4/3;margin-bottom:15px;background:var(--surface-2);border:1px solid var(--line)}
+.client .client-media img{width:100%;height:100%;object-fit:cover;display:block}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .chip{font-size:13px;font-weight:500;background:var(--surface);border:1px solid var(--line-2);color:var(--ink-2);padding:7px 15px;border-radius:30px}
 
@@ -583,9 +585,9 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
       </div>
     </div>
     <div class="client-row" style="margin-top:22px">
-      <div class="client"><div class="cn">Caffe bar</div><div class="cs">Zadar</div><div class="cb">Sezonsko vođenje profila: tematski dani, tjedni kviz u suradnji s lokalnim partnerom, zimska linija koktela i tematske večeri.</div></div>
-      <div class="client"><div class="cn">Bar &amp; restoran</div><div class="cs">Zadar</div><div class="cb">Kompletno vođenje mreža s naglaskom na video format i kontinuirano Meta oglašavanje.</div></div>
-      <div class="client"><div class="cn">Beauty studio</div><div class="cs">Zadar</div><div class="cb">Postavljanje dosljednog vizualnog identiteta profila i redovita produkcija sadržaja na lokaciji.</div></div>
+      <div class="client"><div class="client-media"><img src="assets/media/caffe-bar.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Konobar prelijeva mlijeko u šalicu kave"></div><div class="cn">Caffe bar</div><div class="cs">Zadar</div><div class="cb">Sezonsko vođenje profila: tematski dani, tjedni kviz u suradnji s lokalnim partnerom, zimska linija koktela i tematske večeri.</div></div>
+      <div class="client"><div class="client-media"><img src="assets/media/bar-restoran.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Ruka drži čašu koktela uz kožnu sofu u baru"></div><div class="cn">Bar &amp; restoran</div><div class="cs">Zadar</div><div class="cb">Kompletno vođenje mreža s naglaskom na video format i kontinuirano Meta oglašavanje.</div></div>
+      <div class="client"><div class="client-media"><img src="assets/media/beauty-studio.webp" width="736" height="552" loading="lazy" decoding="async" alt="Njegovane obrve i trepavice nakon tretmana u beauty studiju"></div><div class="cn">Beauty studio</div><div class="cs">Zadar</div><div class="cb">Postavljanje dosljednog vizualnog identiteta profila i redovita produkcija sadržaja na lokaciji.</div></div>
     </div>
   </div></section>
 </div>
