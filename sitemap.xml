@@ -5,8 +5,8 @@
      Domena: mallokka.hr; ako se promijeni, zamijeni i u robots.txt + index.html (canonical/og:url). -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mallokka.hr/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://shxmi03.github.io/mallokka-site/</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>

@@ -10,7 +10,7 @@
       Ako je prazno → analitika se ne učitava. Učitava se SAMO ako je
       posjetitelj prihvatio kolačiće (localStorage "mk-cookie-consent" = "all").
    ============================================================ */
-var FORM_ENDPOINT = "";
+var FORM_ENDPOINT = "https://formsubmit.co/ajax/mallokka.agency@gmail.com";
 var GA_MEASUREMENT_ID = "";
 var CONTACT_EMAIL = "mallokka.agency@gmail.com";
 

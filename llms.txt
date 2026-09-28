@@ -1,0 +1,26 @@
+# MALLOKKA — Marketing i Social Media Agencija Zadar
+
+> Marketing i upravljanje društvenim mrežama specijalizirano za turizam i lokalne biznise (restorane, barove, apartmane, beauty salone) u Zadru i Zadarskoj županiji.
+
+## Osnovne Informacije
+- **Lokacija:** Ferde Šišića 1, 23000 Zadar, Hrvatska
+- **Email:** mallokka.agency@gmail.com
+- **Telefon:** +385 91 7916 536
+- **Vlasnica/Osnivačica:** Karla Mišlov
+
+## Usluge
+- **Vođenje društvenih mreža:** Instagram, Facebook, TikTok (strategija, izrada sadržaja, objave, storyji).
+- **Fotografija i Produkcija:** Fotografiranje lokacija, hrane, pića i usluga te video produkcija (Reels/TikTok).
+- **Digitalno Oglašavanje:** Postavljanje i optimizacija Meta (Facebook/Instagram) oglasa.
+- **Brendiranje:** Izrada vizualnog identiteta i strategije brenda.
+
+## Paketi i Cijene (Mjesečne Pretplate)
+- **Growth (520 €/mj):** 8 objava, 10 storyja, plan sadržaja, osnovni dizajn vizuala, mjesečni izvještaj.
+- **Pro (790 €/mj):** 12–16 objava, 15 storyja, 2 mreže, osnovno vođenje oglašavanja, analiza rezultata.
+- **Premium (1.250 €/mj):** 20+ objava, svakodnevni story, vođenje oglasa, mjesečna strategija i konzultacije.
+
+## Ključne Stranice
+- [Početna](https://shxmi03.github.io/mallokka-site/): Pregled ponude i vizualni identitet
+- [Paketi i Cijene](https://shxmi03.github.io/mallokka-site/#/paketi): Detaljan cjenik usluga
+- [Kalkulator Cijena](https://shxmi03.github.io/mallokka-site/#/kalkulator): Interaktivni izračun cjenovnog ranga
+- [Česta Pitanja (FAQ)](https://shxmi03.github.io/mallokka-site/#/faq): Uvjeti suradnje, probni rok i proces
