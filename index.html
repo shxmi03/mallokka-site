@@ -1006,7 +1006,9 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
   }
 
   function meshFrame(t){
-    if(!ctx||!meshBuf)return;
+    if(!ctx)return;
+    if(!meshBuf)meshResize();
+    if(!meshBuf)return;
     ctx.setTransform(hdpr,0,0,hdpr,0,0);
     ctx.clearRect(0,0,HW,HH);
     var FOCAL=3.0,DIST=7.0,k=0,i,j;
@@ -1052,6 +1054,9 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
     heroEl=document.querySelector(".hero");
     meshResize();
     window.addEventListener("resize",function(){ meshResize(); draw(); });
+    if(window.ResizeObserver&&host){
+      try{ new ResizeObserver(function(){ meshResize(); if(ctx&&meshBuf)meshFrame(meshReduce()?1.2:phase); }).observe(host); }catch(e){}
+    }
     /* webfontovi mijenjaju visinu heroja nakon učitavanja — premjeri da mreža ne ostane rastegnuta */
     if(document.fonts&&document.fonts.ready&&document.fonts.ready.then){
       document.fonts.ready.then(function(){ meshResize(); if(ctx&&meshBuf)meshFrame(meshReduce()?1.2:phase); });
