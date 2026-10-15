@@ -54,7 +54,12 @@ var CONTACT_EMAIL = "mallokka.agency@gmail.com";
     }).then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json().catch(function () { return {}; });
-    }).then(function () {
+    }).then(function (data) {
+      /* FormSubmit vraća HTTP 200 i {"success":"false"} (string!) kad ciljni
+         mailbox nije aktiviran. "false" je u JS-u truthy, pa se usporedba
+         mora raditi strogo i na string i na boolean oblik. */
+      var ok = !!data && data.success !== false && data.success !== "false";
+      if (!ok) throw new Error("FormSubmit: " + ((data && data.message) || "upit nije prihvaćen"));
       form.reset();
       setStatus("Hvala! Upit je poslan — javljamo se u roku od 24 sata.", true);
     }).catch(function () {
