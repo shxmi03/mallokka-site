@@ -5,7 +5,8 @@
    1) FORM_ENDPOINT — endpoint servisa za slanje forme.
       Formspree : "https://formspree.io/f/xxxxxxxx"
       FormSubmit: "https://formsubmit.co/ajax/mallokka.agency@gmail.com"
-      Ako je prazno → forma otvara posjetiteljev mail program (fallback).
+      Ako je prazno → forma prikaže fallback blok s izravnim e-mailom i telefonom
+      (bez automatskog otvaranja mail programa).
    2) GA_MEASUREMENT_ID — GA4 ID, npr. "G-XXXXXXXXXX".
       Ako je prazno → analitika se ne učitava. Učitava se SAMO ako je
       posjetitelj prihvatio kolačiće (localStorage "mk-cookie-consent" = "all").
@@ -21,29 +22,51 @@ var CONTACT_EMAIL = "mallokka.agency@gmail.com";
   var status = document.getElementById("formStatus");
   var hint = document.getElementById("formHint");
   var btn = form.querySelector('button[type="submit"]');
+  var fb = document.getElementById("formFallback");
+  var fbLink = document.getElementById("formFallbackMailto");
 
   function setStatus(msg, ok) {
     if (!status) return;
     status.textContent = msg;
     status.style.color = ok ? "var(--ink-2)" : "#B4553F";
   }
-  function mailtoFallback() {
+  /* Sastavlja mailto adresu iz onoga što je posjetitelj otipkao. Link se NE
+     otvara sam — koristi se samo kao href u fallback bloku, na klik korisnika. */
+  function mailtoHref() {
     var d = new FormData(form);
     var body = "Ime i objekt: " + (d.get("ime") || "") + "\n" +
                "E-mail: " + (d.get("mail") || "") + "\n" +
                "Paket: " + (d.get("paket") || "") + "\n\n" + (d.get("poruka") || "");
-    window.location.href = "mailto:" + CONTACT_EMAIL +
+    return "mailto:" + CONTACT_EMAIL +
       "?subject=" + encodeURIComponent("Upit s web stranice") +
       "&body=" + encodeURIComponent(body);
   }
-  if (FORM_ENDPOINT && hint) {
-    hint.textContent = "Podaci se šalju izravno — bez otvaranja mail programa.";
+  /* Fail-visible: kad automatsko slanje ne prođe, nema tihog preusmjeravanja.
+     Prikaže se blok s pripremljenim mailto linkom, adresom (za kopiranje) i
+     telefonom, pa se upit ni kontakt podaci ne mogu izgubiti. */
+  function showFallback(msg) {
+    if (fb) {
+      if (fbLink) { fbLink.href = mailtoHref(); }
+      fb.hidden = false;
+    }
+    if (hint) {
+      hint.textContent = "Automatsko slanje nije dostupno — upit šaljete izravno e-mailom ili telefonom.";
+    }
+    setStatus(msg, false);
+  }
+  if (hint) {
+    hint.textContent = FORM_ENDPOINT
+      ? "Podaci se šalju izravno — bez otvaranja mail programa."
+      : "Automatsko slanje nije dostupno — upit šaljete izravno e-mailom ili telefonom.";
   }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
-    if (!FORM_ENDPOINT) { mailtoFallback(); return; }
+    if (!FORM_ENDPOINT) {
+      showFallback("Automatsko slanje trenutačno nije dostupno. Pošaljite upit izravno — otvorite e-mail s pripremljenom porukom ili kopirajte adresu.");
+      return;
+    }
 
     if (btn) { btn.disabled = true; }
     setStatus("Šaljem upit…", true);
@@ -61,10 +84,10 @@ var CONTACT_EMAIL = "mallokka.agency@gmail.com";
       var ok = !!data && data.success !== false && data.success !== "false";
       if (!ok) throw new Error("FormSubmit: " + ((data && data.message) || "upit nije prihvaćen"));
       form.reset();
+      if (fb) { fb.hidden = true; }
       setStatus("Hvala! Upit je poslan — javljamo se u roku od 24 sata.", true);
     }).catch(function () {
-      setStatus("Slanje nije uspjelo. Otvaram vaš mail program…", false);
-      mailtoFallback();
+      showFallback("Automatsko slanje nije uspjelo. Pišite nam izravno — otvorite e-mail ili kopirajte adresu.");
     }).then(function () {
       if (btn) { btn.disabled = false; }
     });

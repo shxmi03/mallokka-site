@@ -240,6 +240,15 @@ section.band{padding:62px 0}
 .field label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .field input,.field select,.field textarea{font-family:inherit;font-size:14.5px;padding:12px 15px;border-radius:11px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);width:100%}
 .field textarea{min-height:118px;resize:vertical}
+/* Fail-visible kontakt: kad automatsko slanje ne prođe, prikaže se ovaj blok
+   (JS mu skida atribut hidden) s gotovim mailto linkom, adresom za kopiranje i telefonom. */
+.form-fb{margin-top:2px;padding:16px 17px;border:1px solid var(--line-2);border-radius:14px;background:var(--surface)}
+.form-fb[hidden]{display:none}
+.form-fb .fb-t{margin:0 0 6px;font-size:14.5px;font-weight:600;color:var(--ink)}
+.form-fb .fb-b{margin:0 0 14px;font-size:13.5px;line-height:1.62;color:var(--ink-2)}
+.form-fb .fb-ways{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:7px;font-size:13.5px;color:var(--ink-2)}
+.form-fb .fb-mail{font-weight:600;color:var(--ink);user-select:all}
+.form-fb a:not(.btn){color:var(--blue-deep);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--blue-deep) 35%,transparent)}
 .kv{display:flex;flex-direction:column;gap:15px}
 .kv .k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .kv .v{font-size:16.5px;color:var(--ink);font-weight:500}
@@ -624,6 +633,15 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
         <button class="btn btn-p" type="submit" style="border:none;cursor:pointer;font-family:inherit">Pošalji upit</button>
         <p id="formStatus" role="status" aria-live="polite" style="margin:12px 0 0;font-size:13.5px;color:var(--muted)"></p>
         <small id="formHint" style="color:var(--muted);font-size:12.5px">Otvara vaš e-mail program s pripremljenom porukom.</small>
+        <div class="form-fb" id="formFallback" hidden>
+          <p class="fb-t">Slanje iz forme trenutačno nije moguće</p>
+          <p class="fb-b">Vaš upit nije poslan i ništa nije izgubljeno — poruka je već pripremljena, samo je pošaljite iz svog mail programa ili nas nazovite.</p>
+          <a class="btn btn-p" id="formFallbackMailto" href="mailto:mallokka.agency@gmail.com">Otvori e-mail s pripremljenom porukom</a>
+          <ul class="fb-ways">
+            <li>E-mail: <span class="fb-mail">mallokka.agency@gmail.com</span></li>
+            <li>Telefon: <a href="tel:+385917916536">091 7916 536</a></li>
+          </ul>
+        </div>
       </form>
       <div>
         <div class="kv">
