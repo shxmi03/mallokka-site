@@ -8,19 +8,34 @@
 - **Telefon:** +385 91 7916 536
 - **Vlasnica/Osnivačica:** Karla Mišlov
 
-## Usluge
-- **Vođenje društvenih mreža:** Instagram, Facebook, TikTok (strategija, izrada sadržaja, objave, storyji).
-- **Fotografija i Produkcija:** Fotografiranje lokacija, hrane, pića i usluga te video produkcija (Reels/TikTok).
-- **Digitalno Oglašavanje:** Postavljanje i optimizacija Meta (Facebook/Instagram) oglasa.
-- **Brendiranje:** Izrada vizualnog identiteta i strategije brenda.
+## Usluge (glavne)
+- **01 Upravljanje društvenim mrežama:** Planiranje, kreiranje i objavljivanje vizualno dosljednog sadržaja te svakodnevna komunikacija s publikom, uz mjesečno praćenje rezultata.
+- **02 Marketinška strategija:** Analiza trenutnog stanja i tržišta, definiranje ciljeva, plana komunikacije i sezonskih kampanja prilagođenih poslovanju.
+- **03 Oglašavanje i promocija:** Digitalne kampanje (Meta oglasi) te tradicionalne metode poput letaka i plakata.
+- **04 Copywriting i izrada sadržaja:** Tekstovi za objave, blogove i newslettere te osmišljavanje vizuala i fotografija.
+- **05 Brendiranje i vizualni identitet:** Razvoj ili osvježavanje identiteta brenda — strategija, logotip, boje, tipografija i komunikacijski smjer.
+- **06 Edukacije i konzultacije:** Individualno 1:1 savjetovanje i edukacije za vlasnike biznisa koji žele samostalno voditi svoje mreže.
+
+## Dodatne usluge
+- **Organizacija eventa i promocija:** Organizacija promotivnih događanja, otvorenja, prezentacija i aktivacija brenda.
+- **Vođenje Google profila i TripAdvisora:** Optimizacija, redovito ažuriranje i upravljanje recenzijama za lokalni SEO i ugled brenda.
+- **Analiza tržišta i konkurencije:** Istraživanje tržišta, praćenje konkurencije i preporuke za pozicioniranje.
+- **Projektno vođenje i koordinacija:** Planiranje, organizacija i koordinacija marketinških i poslovnih projekata, uz praćenje rokova.
 
 ## Paketi i Cijene (Mjesečne Pretplate)
-- **Growth (520 €/mj):** 8 objava, 10 storyja, plan sadržaja, osnovni dizajn vizuala, mjesečni izvještaj.
-- **Pro (790 €/mj):** 12–16 objava, 15 storyja, 2 mreže, osnovno vođenje oglašavanja, analiza rezultata.
-- **Premium (1.250 €/mj):** 20+ objava, svakodnevni story, vođenje oglasa, mjesečna strategija i konzultacije.
+- **Growth (520 €/mj):** 8 objava, 10 storyja, plan sadržaja, osnovni dizajn vizuala, mjesečni izvještaj o rezultatima.
+- **Pro (790 €/mj):** 12–16 objava, 15 storyja, vođenje 2 društvene mreže, osnovno vođenje oglašavanja, analiza rezultata i prijedlozi.
+- **Premium (1.250 €/mj):** 20+ objava, svakodnevni story sadržaj, postavljanje i vođenje oglasa, izrada mjesečne strategije, mjesečne konzultacije, detaljno izvještavanje.
+- **Custom paket:** Opseg i usluge prilagođeni potrebama i budžetu, po dogovoru.
+- **Napomena o cijenama:** cijene su mjesečne, iskazane u eurima i konačne — obrt nije u sustavu PDV-a, pa se PDV ne obračunava. Prvi mjesec suradnje je probni, nakon toga ugovor ide na minimalno 3 mjeseca uz otkazni rok od 30 dana. Budžet za oglašavanje nije uključen u cijenu.
 
 ## Ključne Stranice
 - [Početna](https://shxmi03.github.io/mallokka-site/): Pregled ponude i vizualni identitet
+- [Usluge](https://shxmi03.github.io/mallokka-site/#/usluge): Šest glavnih usluga i dodatne usluge
 - [Paketi i Cijene](https://shxmi03.github.io/mallokka-site/#/paketi): Detaljan cjenik usluga
 - [Kalkulator Cijena](https://shxmi03.github.io/mallokka-site/#/kalkulator): Interaktivni izračun cjenovnog ranga
+- [Radovi](https://shxmi03.github.io/mallokka-site/#/radovi): Odabrani projekti i način rada
+- [O nama](https://shxmi03.github.io/mallokka-site/#/o-nama): Karla Mišlov, osnivačica agencije
+- [Sezona](https://shxmi03.github.io/mallokka-site/#/sezona): Sezonalnost u turizmu — plan rada kroz godinu
 - [Česta Pitanja (FAQ)](https://shxmi03.github.io/mallokka-site/#/faq): Uvjeti suradnje, probni rok i proces
+- [Kontakt](https://shxmi03.github.io/mallokka-site/#/kontakt): Upit, kontakt podaci i besplatne konzultacije
