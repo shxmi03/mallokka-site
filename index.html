@@ -316,7 +316,11 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
 .mk-svg .mk-month-on{fill:var(--ink-2);font-weight:600}
 .mk-svg .mk-axis{fill:var(--muted);font-size:10.5px;font-variant-numeric:tabular-nums}
 .mk-svg .mk-hit{fill:transparent;cursor:pointer;outline:none}
-.mk-svg .mk-hit:focus-visible{fill:var(--blue-solid);fill-opacity:.18}
+/* Fokus na stupcu grafa mora imati vidljiv obrub (WCAG 2.1 AA 2.4.7) — sama ispuna
+   (fill-opacity:.18) je bila ≈1,1:1 prema podlozi. Obrub koristi --blue-deep:
+   svijetla tema #3E6491 = 5,32:1 prema --surface-2 #F6EFDC; tamna #C3CB92 = 9,42:1
+   prema #291F18 — oboje ≥3:1. Boje/geometrija grafa se ne mijenjaju. */
+.mk-svg .mk-hit:focus-visible{fill:var(--blue-solid);fill-opacity:.18;outline:2px solid var(--blue-deep);outline-offset:2px}
 .mk-tip{position:absolute;left:0;top:0;transform:translate(-50%,-100%);background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:14px;padding:11px 13px;width:238px;pointer-events:none;opacity:0;transition:opacity .15s ease;box-shadow:var(--shadow);z-index:5}
 .mk-tip.on{opacity:1}
 .mk-tip .tm{font-size:14.5px;font-weight:600}
@@ -624,8 +628,8 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
       <p class="lead">Marketing u turizmu danas nije opcija — on je temelj uspješne sezone. Javite se i dogovorimo uvodni razgovor o vašim ciljevima.</p></div>
     <div class="grid-2" style="gap:36px;align-items:start">
       <form class="form" id="contactForm">
-        <div class="field"><label for="f1">Ime i objekt</label><input id="f1" name="ime" required placeholder="Ana Horvat · Caffe bar Riva"></div>
-        <div class="field"><label for="f2">E-mail</label><input id="f2" name="mail" type="email" required placeholder="ana@caffebar.hr"></div>
+        <div class="field"><label for="f1">Ime i objekt</label><input id="f1" name="ime" autocomplete="name" required placeholder="Ana Horvat · Caffe bar Riva"></div>
+        <div class="field"><label for="f2">E-mail</label><input id="f2" name="mail" type="email" autocomplete="email" required placeholder="ana@caffebar.hr"></div>
         <div class="field"><label for="f3">Paket koji vas zanima</label>
           <select id="f3" name="paket"><option>Još ne znam</option><option>Growth — 520 €/mj.</option><option>Pro — 790 €/mj.</option><option>Premium — 1.250 €/mj.</option><option>Custom paket</option></select></div>
         <div class="field"><label for="f4">Poruka</label><textarea id="f4" name="poruka" placeholder="Vodimo bar u centru, objavljujemo neredovito i nemamo vremena snimati."></textarea></div>
