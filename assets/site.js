@@ -9,6 +9,9 @@
       FormSubmit pošalje mail s linkom "Activate Form" na adresu iz endpointa;
       dok se ne klikne, svaki POST vraća {"success":"false"} i poruka NE stiže.
       Polje s adresom pošiljatelja MORA se zvati "email" (postaje Reply-To).
+      Honeypot polje se MORA zvati "_honey" — FormSubmit.co NE prepoznaje
+      "_gotcha" (to je polje drugih servisa: Formspree / formsubmit.app),
+      pa s pogrešnim imenom zaštita od spama tiho ne radi ništa.
       Ako je prazno → forma prikaže fallback blok s izravnim e-mailom i telefonom
       (bez automatskog otvaranja mail programa).
    2) GA_MEASUREMENT_ID — GA4 ID, npr. "G-XXXXXXXXXX".
