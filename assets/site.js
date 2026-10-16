@@ -5,6 +5,10 @@
    1) FORM_ENDPOINT — endpoint servisa za slanje forme.
       Formspree : "https://formspree.io/f/xxxxxxxx"
       FormSubmit: "https://formsubmit.co/ajax/mallokka.agency@gmail.com"
+      VAŽNO (FormSubmit): ciljni mailbox mora JEDNOM potvrditi aktivaciju —
+      FormSubmit pošalje mail s linkom "Activate Form" na adresu iz endpointa;
+      dok se ne klikne, svaki POST vraća {"success":"false"} i poruka NE stiže.
+      Polje s adresom pošiljatelja MORA se zvati "email" (postaje Reply-To).
       Ako je prazno → forma prikaže fallback blok s izravnim e-mailom i telefonom
       (bez automatskog otvaranja mail programa).
    2) GA_MEASUREMENT_ID — GA4 ID, npr. "G-XXXXXXXXXX".
@@ -35,7 +39,7 @@ var CONTACT_EMAIL = "mallokka.agency@gmail.com";
   function mailtoHref() {
     var d = new FormData(form);
     var body = "Ime i objekt: " + (d.get("ime") || "") + "\n" +
-               "E-mail: " + (d.get("mail") || "") + "\n" +
+               "E-mail: " + (d.get("email") || "") + "\n" +
                "Paket: " + (d.get("paket") || "") + "\n\n" + (d.get("poruka") || "");
     return "mailto:" + CONTACT_EMAIL +
       "?subject=" + encodeURIComponent("Upit s web stranice") +
