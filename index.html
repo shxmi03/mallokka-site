@@ -1017,7 +1017,7 @@ html[data-mk-route="/"] .route[data-route="/"],html[data-mk-route="/sezona"] .ro
     var ar=w/h, wide=Math.max(0,Math.min(1,(w-1280)/160));
     var dens=wide*Math.max(0,Math.min(1,(ar-2.1)/0.9));
     NX=small?34:48+Math.round(wide*(12+7*dens));
-    NY=small?28:38+Math.round(wide*(14-dens));
+    NY=small?28:38+Math.round(wide*(9+4*dens));
     meshBuf=new Float32Array(NX*NY*3);
     heroBounds();
   }
