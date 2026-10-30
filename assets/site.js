@@ -2,23 +2,25 @@
    MALLOKKA — assets/site.js
    Kontakt forma · privola-vođena analitika · lijeno učitavanje videa
 
-   1) FORM_ENDPOINT — endpoint servisa za slanje forme.
+   1) FORM_ENDPOINT — endpoint za slanje forme.
+      Vlastiti API (preporučeno): "https://158-101-198-21.sslip.io/api/kontakt"
+      Servis: server 158.101.198.21, systemd unit `mallokka-form-api`
+      (~/workspace/scripts/mallokka-form-api.py), Caddy ruta /api/kontakt*.
+      Bez vanjske registracije i bez aktivacije po domeni; API prima
+      application/x-www-form-urlencoded i odgovara {"ok":true}.
+      Alternative koje traže aktivaciju (držati samo kao rezervu):
       Formspree : "https://formspree.io/f/xxxxxxxx"
-      FormSubmit: "https://formsubmit.co/ajax/mallokka.agency@gmail.com"
-      VAŽNO (FormSubmit): ciljni mailbox mora JEDNOM potvrditi aktivaciju —
-      FormSubmit pošalje mail s linkom "Activate Form" na adresu iz endpointa;
-      dok se ne klikne, svaki POST vraća {"success":"false"} i poruka NE stiže.
-      Polje s adresom pošiljatelja MORA se zvati "email" (postaje Reply-To).
-      Honeypot polje se MORA zvati "_honey" — FormSubmit.co NE prepoznaje
-      "_gotcha" (to je polje drugih servisa: Formspree / formsubmit.app),
-      pa s pogrešnim imenom zaštita od spama tiho ne radi ništa.
-      Ako je prazno → forma prikaže fallback blok s izravnim e-mailom i telefonom
-      (bez automatskog otvaranja mail programa).
+      FormSubmit: "https://formsubmit.co/ajax/mallokka.agency@gmail.com" —
+      ciljni mailbox mora JEDNOM potvrditi aktivaciju po domeni; dok se ne
+      klikne, svaki POST vraća {"success":"false"} i poruka NE stiže.
+      Honeypot polje se zove "_honey" (FormSubmit.co ne prepoznaje "_gotcha").
+      Ako je endpoint prazan → forma prikaže fallback blok s izravnim e-mailom
+      i telefonom (bez automatskog otvaranja mail programa).
    2) GA_MEASUREMENT_ID — GA4 ID, npr. "G-XXXXXXXXXX".
       Ako je prazno → analitika se ne učitava. Učitava se SAMO ako je
       posjetitelj prihvatio kolačiće (localStorage "mk-cookie-consent" = "all").
    ============================================================ */
-var FORM_ENDPOINT = "https://formsubmit.co/ajax/mallokka.agency@gmail.com";
+var FORM_ENDPOINT = "https://158-101-198-21.sslip.io/api/kontakt";
 var GA_MEASUREMENT_ID = "";
 var CONTACT_EMAIL = "mallokka.agency@gmail.com";
 
@@ -77,19 +79,27 @@ var CONTACT_EMAIL = "mallokka.agency@gmail.com";
 
     if (btn) { btn.disabled = true; }
     setStatus("Šaljem upit…", true);
+    /* Endpoint prima application/x-www-form-urlencoded (jednostavan CORS
+       zahtjev — bez preflighta). Vrijednosti idu iz forme, _honey ostaje
+       prazan kod ljudi (botovi ga popune → API tiho odbaci). */
+    var payload = new URLSearchParams();
+    ["ime", "email", "paket", "poruka", "_honey", "_subject"].forEach(function (n) {
+      var el = form.elements.namedItem(n);
+      var v = el && el.value != null ? String(el.value) : "";
+      if (el || v) { payload.append(n, v); }
+    });
     fetch(FORM_ENDPOINT, {
       method: "POST",
-      body: new FormData(form),
+      body: payload,
       headers: { "Accept": "application/json" }
     }).then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json().catch(function () { return {}; });
+      return r.json().catch(function () { return { ok: false }; });
     }).then(function (data) {
-      /* FormSubmit vraća HTTP 200 i {"success":"false"} (string!) kad ciljni
-         mailbox nije aktiviran. "false" je u JS-u truthy, pa se usporedba
-         mora raditi strogo i na string i na boolean oblik. */
-      var ok = !!data && data.success !== false && data.success !== "false";
-      if (!ok) throw new Error("FormSubmit: " + ((data && data.message) || "upit nije prihvaćen"));
+      /* Novi API vraća {"ok":true}; FormSubmit/Formspree vraćaju "success"
+         (string "false" je truthy, pa se usporedba radi strogo). */
+      var ok = !!data && (data.ok === true ||
+        (data.success !== undefined && data.success !== false && data.success !== "false"));
+      if (!ok) throw new Error("Kontakt API: " + ((data && (data.error || data.message)) || "upit nije prihvaćen"));
       form.reset();
       if (fb) { fb.hidden = true; }
       setStatus("Hvala! Upit je poslan — javljamo se u roku od 24 sata.", true);
