@@ -3,9 +3,7 @@
    Kontakt forma · privola-vođena analitika · lijeno učitavanje videa
 
    1) FORM_ENDPOINT — endpoint za slanje forme.
-      Vlastiti API (preporučeno): "https://158-101-198-21.sslip.io/api/kontakt"
-      Servis: server 158.101.198.21, systemd unit `mallokka-form-api`
-      (~/workspace/scripts/mallokka-form-api.py), Caddy ruta /api/kontakt*.
+      Vlastiti API (preporučeno): vlastiti endpoint na /api/kontakt.
       Bez vanjske registracije i bez aktivacije po domeni; API prima
       application/x-www-form-urlencoded i odgovara {"ok":true}.
       Alternative koje traže aktivaciju (držati samo kao rezervu):
