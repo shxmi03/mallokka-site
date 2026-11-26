@@ -136,7 +136,7 @@ p{margin:0}
 .ticker-set li.t-sky{background:var(--sky)}
 .ticker-set li.t-line{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line-strong)}
 @keyframes ticker{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-@media (prefers-reduced-motion:reduce){.ticker{-webkit-mask-image:none;mask-image:none}.ticker-track{animation:none;width:auto}.ticker-set{flex-wrap:wrap}.ticker-set[aria-hidden]{display:none}}
+@media (prefers-reduced-motion:reduce){.ticker{-webkit-mask-image:none;mask-image:none}.ticker-track{animation:none;width:auto}.ticker-set{flex-wrap:wrap}.ticker-set[aria-hidden],.ticker-set li[aria-hidden]{display:none}}
 
 /* ---- inverse: what I do ---- */
 .checks{list-style:none;margin:0;padding:0;display:grid;grid-auto-rows:1fr;gap:14px}
@@ -421,7 +421,7 @@ p{margin:0}
     <dl>
       <div class="bio">
         <div><dt>Jasan opis (bio)</dt><dd>Što nudite, gdje se točno nalazite i do kad radite.</dd></div>
-        <div><dt>Istaknuti naglasci</dt><dd class="concerts"><span class="chip chip--sky">Ponuda</span><span class="chip chip--sky">Lokacija</span><span class="chip chip--sky">Koncerti</span><span class="chip chip--sky">Atmosfera</span></dd></div>
+        <div><dt>Istaknuti naglasci</dt><dd><div class="ticker"><div class="ticker-track"><ul class="ticker-set" aria-label="Istaknuti naglasci"><li class="t-sky">Ponuda</li><li>Lokacija</li><li class="t-sky">Koncerti</li><li>Atmosfera</li><li class="t-sky" aria-hidden="true">Ponuda</li><li aria-hidden="true">Lokacija</li><li class="t-sky" aria-hidden="true">Koncerti</li><li aria-hidden="true">Atmosfera</li></ul><ul class="ticker-set" aria-hidden="true"><li class="t-sky">Ponuda</li><li>Lokacija</li><li class="t-sky">Koncerti</li><li>Atmosfera</li><li class="t-sky">Ponuda</li><li>Lokacija</li><li class="t-sky">Koncerti</li><li>Atmosfera</li></ul></div></div></dd></div>
         <div><dt>Usklađen feed</dt><dd>Krupni kadrovi hrane i pića koji zaustavljaju skrolanje.</dd></div>
       </div>
     </dl>
