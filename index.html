@@ -152,10 +152,13 @@ p{margin:0}
 /* phone mock: a fixed light app screen inside an espresso handset, same in both themes */
 .phone-wrap{margin:4px 0 0;display:flex;flex-direction:column;align-items:center;gap:12px}
 .phone-wrap figcaption{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.phone{width:min(300px,84%);background:#2f2622;border-radius:46px;padding:9px;box-shadow:0 0 0 1.5px #5a463c inset,0 28px 50px -22px rgba(47,38,34,.55)}
-.screen{background:#fffdf9;color:#262019;border-radius:38px;overflow:hidden;font-family:var(--font-body);line-height:1.3}
-.sb{display:flex;justify-content:space-between;align-items:center;padding:12px 22px 6px;font-size:.6875rem;font-weight:700;font-variant-numeric:tabular-nums}
-.island{width:76px;height:20px;background:#120e0c;border-radius:999px;display:block}
+/* iPhone Pro proportions: 71.5 x 149.6 mm body, thin titanium band, black bezel, Dynamic Island */
+.phone{position:relative;width:min(290px,80%);aspect-ratio:71.5/149.6;border-radius:52px;padding:3px;background:linear-gradient(150deg,#dcd6ce 0%,#9a948d 22%,#c9c3bb 48%,#827c76 74%,#d3cdc5 100%);box-shadow:0 0 0 .5px rgba(47,38,34,.35),0 30px 60px -26px rgba(47,38,34,.6)}
+.phone::before{content:"";position:absolute;left:-2.5px;top:17%;width:3px;height:29%;border-radius:2px 0 0 2px;background:linear-gradient(180deg,#a8a29a 0 11%,transparent 11% 21%,#a8a29a 21% 56%,transparent 56% 64%,#a8a29a 64% 100%)}
+.phone::after{content:"";position:absolute;right:-2.5px;top:25%;width:3px;height:36%;border-radius:0 2px 2px 0;background:linear-gradient(180deg,#a8a29a 0 40%,transparent 40% 74%,#8f8982 74% 100%)}
+.screen{position:relative;height:100%;background:#fffdf9;color:#262019;border:5px solid #0b0908;border-radius:49px;overflow:hidden;font-family:var(--font-body);line-height:1.3}
+.sb{display:flex;justify-content:space-between;align-items:center;padding:9px 24px 4px;font-size:.75rem;font-weight:700;font-variant-numeric:tabular-nums}
+.island{width:31%;height:25px;background:#0b0908;border-radius:999px;display:block}
 .sb-ic{display:flex;align-items:flex-end;gap:2px;height:10px}
 .sb-ic b{width:3px;background:#262019;border-radius:1px}
 .sb-ic b:nth-child(1){height:4px}.sb-ic b:nth-child(2){height:7px}.sb-ic b:nth-child(3){height:10px}
@@ -186,8 +189,12 @@ p{margin:0}
 .ig-tabs i.on::after{border-color:#262019;background:linear-gradient(#262019,#262019) 50% 0/1.4px 100% no-repeat,linear-gradient(#262019,#262019) 0 50%/100% 1.4px no-repeat}
 .feed{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:#fffdf9}
 .feed img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
-.home-ind{display:flex;justify-content:center;padding:8px 0 9px}
-.home-ind i{width:96px;height:4px;border-radius:999px;background:#262019;display:block}
+.ig-nav{position:absolute;left:0;right:0;bottom:0;height:62px;background:#fffdf9;border-top:1px solid #ebe4da;display:flex;justify-content:space-around;align-items:flex-start;padding:9px 10px 0}
+.ig-nav svg{width:20px;height:20px;color:#262019}
+.ig-nav .me{width:21px;height:21px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1.4px #262019;display:block}
+.ig-nav .me img{width:100%;height:100%;object-fit:cover;display:block}
+.home-ind{position:absolute;left:0;right:0;bottom:7px;display:flex;justify-content:center}
+.home-ind i{width:36%;height:4px;border-radius:999px;background:#262019;display:block}
 .cases{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .case{background:var(--surface-2);padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;font-size:.9375rem;line-height:1.45}
 .case b{font-weight:600;font-size:1rem}
@@ -401,6 +408,7 @@ p{margin:0}
           <img src="img/p4.jpg" alt=""><img src="img/p8.jpg" alt=""><img src="img/p1.jpg" alt="">
           <img src="img/p6.jpg" alt=""><img src="img/p7.jpg" alt=""><img src="img/p5.jpg" alt="">
         </div>
+        <div class="ig-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3.5 10.5 12 3.5l8.5 7V20a.5.5 0 0 1-.5.5h-5v-6h-6v6H4a.5.5 0 0 1-.5-.5z"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><path d="M12 8v8M8 12h8"/></svg><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><path d="M3.5 8.5h17M9 3.5l2.5 5M14.5 3.5l2.5 5"/><path d="m10.5 12 4 2.3-4 2.3z" fill="currentColor" stroke="none"/></svg><span class="me"><img src="img/p5.jpg" alt=""></span></div>
         <div class="home-ind"><i></i></div>
       </div>
     </div>
