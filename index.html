@@ -217,8 +217,12 @@ p{margin:0}
 /* ---- weekly pillars ---- */
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .strip img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:6px}
-.pillars li{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:4px}
-.pillars .chip{grid-row:span 2;align-self:start;margin-top:3px;font-variant-numeric:tabular-nums}
+.pillars li{display:grid;grid-template-columns:88px minmax(0,1fr);gap:16px;align-items:start}
+.pillars li > div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.pthumb{width:88px;aspect-ratio:3/4;object-fit:cover;border-radius:6px;display:block}
+.pillars .tag{align-self:flex-start;font-size:.6875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:3px;background:var(--blush);color:var(--on-fill);margin-bottom:4px}
+.pillars .tag.t-sky{background:var(--sky)}
+.pillars p{font-size:.96875rem;line-height:1.5}
 .pillars h3{font-size:1.15rem}
 
 /* ---- packages ---- */
@@ -469,14 +473,11 @@ p{margin:0}
       <p class="label">Plan objava</p>
       <h2>Što ćemo objavljivati svaki tjedan?</h2>
     </div>
-    <div class="strip" aria-hidden="true">
-      <img src="img/p6.jpg" alt=""><img src="img/p3.jpg" alt=""><img src="img/p4.jpg" alt=""><img src="img/p1.jpg" alt="">
-    </div>
     <ul class="items pillars">
-      <li><span class="chip">Hit</span><h3>Specijalitet kućice</h3><p>Predstavljanje vašeg glavnog aduta (burger, kobasica, fritule, autorski koktel) – zašto probati baš vaš.</p></li>
-      <li><span class="chip chip--sky">Koncert</span><h3>Koncertni specijali</h3><p>Ciljane objave na dane velikih nastupa, npr. „Akcija na kuhano vino do 21 h prije koncerta”.</p></li>
-      <li><span class="chip">Giveaway</span><h3>Adventski giveaway</h3><p>„Označi ekipu s kojom dolaziš i osvoji rundu + klopu” – najbrži način za širenje po Zadru.</p></li>
-      <li><span class="chip chip--sky">Vibra</span><h3>Ljudska strana i vibra</h3><p>Osmijeh iza šanka i dobra atmosfera – gosti se uvijek vraćaju tamo gdje je najbolja energija.</p></li>
+      <li><img class="pthumb" src="img/p0.jpg" alt="Burger s otopljenim sirom"><div><span class="tag">Hit</span><h3>Specijalitet kućice</h3><p>Predstavljanje vašeg glavnog aduta (burger, kobasica, fritule, autorski koktel) – zašto probati baš vaš.</p></div></li>
+      <li><img class="pthumb" src="img/p3.jpg" alt="Dvije čaše kuhanog vina"><div><span class="tag t-sky">Koncert</span><h3>Koncertni specijali</h3><p>Ciljane objave na dane velikih nastupa, npr. „Akcija na kuhano vino do 21 h prije koncerta”.</p></div></li>
+      <li><img class="pthumb" src="img/p4.jpg" alt="Ekipa nazdravlja na trgu"><div><span class="tag">Giveaway</span><h3>Adventski giveaway</h3><p>„Označi ekipu s kojom dolaziš i osvoji rundu + klopu” – najbrži način za širenje po Zadru.</p></div></li>
+      <li><img class="pthumb" src="img/p1.jpg" alt="Nasmijana ekipa iza šanka kućice"><div><span class="tag t-sky">Vibra</span><h3>Ljudska strana i vibra</h3><p>Osmijeh iza šanka i dobra atmosfera – gosti se uvijek vraćaju tamo gdje je najbolja energija.</p></div></li>
     </ul>
   </div>
 </section>
