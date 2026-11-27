@@ -240,7 +240,9 @@ p{margin:0}
 .price{font-size:2.6rem;line-height:1;font-weight:700;letter-spacing:-.03em;font-variant-numeric:lining-nums}
 .price small{font-size:.5em;font-weight:600;margin-left:2px}
 .pack-for{font-family:var(--font-display);font-variation-settings:var(--font-axes);font-style:italic;font-size:1.1rem;line-height:1.3}
-.pack-note{font-size:.875rem;line-height:1.5;color:var(--muted);text-align:center;max-width:44ch;margin:0 auto}
+/* note sits centred in the band between the last card and the next slide: the slide's bottom padding moves into the note */
+#s7{padding-bottom:0}
+.pack-note{font-size:.875rem;line-height:1.5;color:var(--muted);text-align:center;max-width:44ch;margin:-28px auto 0;padding-block:66px}
 .pack .dash{font-size:.96875rem;line-height:1.5;gap:7px}
 .badge{background:var(--inverse);color:var(--on-inverse);font-size:.6875rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
 .pack--hit .badge{background:#48372f;color:#fef3d5}
@@ -291,6 +293,8 @@ p{margin:0}
 
 @media (min-width:720px){
   .slide{padding-block:96px 120px}
+  #s7{padding-bottom:0}
+  .pack-note{padding-block:74px}
   .cover{padding-top:48px}
   .cover-photo{max-height:44svh}
 }
