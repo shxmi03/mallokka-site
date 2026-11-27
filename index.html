@@ -118,6 +118,10 @@ p{margin:0}
 .cover-photo .tag{position:absolute;top:0;left:0;right:0;display:block;text-align:center;padding:22px var(--gr) 84px var(--g);background:linear-gradient(180deg,rgba(72,55,47,.62) 0%,rgba(72,55,47,.48) 25%,rgba(72,55,47,.3) 50%,rgba(72,55,47,.12) 75%,rgba(72,55,47,0) 100%);color:#fef3d5;font-family:var(--font-display);font-variation-settings:var(--font-axes);font-weight:700;font-size:clamp(1.75rem,7.6vw,2.4rem);line-height:1;letter-spacing:-.025em;text-shadow:0 2px 16px rgba(72,55,47,.6)}
 .cover .in{padding-top:32px;gap:22px;text-align:center;align-items:center}
 .cover .brand{align-self:stretch}
+/* logo block sits centred between the divider line and the end of the cover: the slide's bottom padding moves into it */
+#s1{padding-bottom:0}
+.cover .in{flex:1}
+.cover .brand{flex:1;justify-content:center;padding-block:63px}
 .brand{display:flex;flex-direction:column;align-items:center;gap:10px;padding-top:22px;border-top:1px solid var(--line);text-align:center}
 .brand svg{height:52px;width:auto;color:var(--text);display:block}
 .brand small{font-size:.8125rem;color:var(--muted);text-align:center;line-height:1.4}
@@ -301,6 +305,7 @@ p{margin:0}
   #s7{padding-bottom:0}
   .pack-note{padding-block:74px}
   .cover{padding-top:48px}
+  .cover .brand{padding-block:71px}
   .cover-photo{max-height:44svh}
 }
 </style>
