@@ -129,14 +129,17 @@ p{margin:0}
 .chip--line{background:transparent;color:var(--text);border:1px solid var(--line-strong)}
 /* performer ticker: squared tags drifting left → right in one band */
 .ticker{overflow:hidden;margin-top:8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
-.ticker-track{display:flex;width:max-content;animation:ticker 20s linear infinite}
-.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track{display:flex;width:max-content;animation:ticker 20s linear infinite;will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+/* pause on hover only where a real pointer hovers; on touch, iOS keeps :hover stuck after a tap/scroll and the band would freeze */
+@media (hover:hover) and (pointer:fine){.ticker:hover .ticker-track{animation-play-state:paused}}
+.ticker.is-paused .ticker-track{animation-play-state:paused}
 .ticker-set{display:flex;gap:8px;padding:0 8px 0 0;margin:0;list-style:none}
 .ticker-set li{font-size:.875rem;font-weight:600;letter-spacing:.01em;padding:7px 13px;border-radius:3px;background:var(--blush);color:var(--on-fill);white-space:nowrap}
 .ticker-set li.t-sky{background:var(--sky)}
 .ticker-set li.t-line{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line-strong)}
 @keyframes ticker{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-@media (prefers-reduced-motion:reduce){.ticker{-webkit-mask-image:none;mask-image:none}.ticker-track{animation:none;width:auto}.ticker-set{flex-wrap:wrap}.ticker-set[aria-hidden],.ticker-set li[aria-hidden]{display:none}}
+/* with "Reduce Motion" on (common on iPhones) the band keeps drifting, just slower; a tap pauses it */
+@media (prefers-reduced-motion:reduce){.ticker-track{animation-duration:40s}}
 
 /* ---- inverse: what I do ---- */
 .checks{list-style:none;margin:0;padding:0;display:grid;grid-auto-rows:1fr;gap:14px}
@@ -589,6 +592,12 @@ p{margin:0}
   <button type="button" id="next" aria-label="Sljedeći slajd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
 </nav>
 
+<script>
+/* tickers: a tap pauses / resumes the drifting band (touch has no hover) */
+document.querySelectorAll('.ticker').forEach(function(t){
+  t.addEventListener('click',function(){t.classList.toggle('is-paused');});
+});
+</script>
 <script>
 (function(){
   var slides=[].slice.call(document.querySelectorAll('.slide'));
