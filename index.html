@@ -139,7 +139,7 @@ p{margin:0}
 .ticker-set li.t-line{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line-strong)}
 @keyframes ticker{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 /* with "Reduce Motion" on (common on iPhones) the band keeps drifting, just slower; a tap pauses it */
-@media (prefers-reduced-motion:reduce){.ticker-track{animation-duration:40s}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation-duration:40s}.post-ticker .ticker-track{animation-duration:110s}}
 
 /* ---- inverse: what I do ---- */
 .checks{list-style:none;margin:0;padding:0;display:grid;grid-auto-rows:1fr;gap:14px}
@@ -220,9 +220,14 @@ p{margin:0}
 /* ---- weekly pillars ---- */
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .strip img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:6px}
-.pillars li{display:grid;grid-template-columns:clamp(128px,38%,180px) minmax(0,1fr);gap:16px;align-items:center}
+.pillars li{display:block}
 .pillars li > div{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:4px;min-width:0}
-.pthumb{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px;display:block}
+/* feed posts drifting left → right in one band, same motion as the performer names */
+.post-ticker{margin:0 calc(-1 * var(--g)) 0 calc(-1 * var(--gr))}
+.post-ticker .ticker-track{animation-duration:55s}
+.post-ticker .ticker-set{gap:10px;padding-right:10px}
+.post-ticker .ticker-set li{padding:0;background:none;border-radius:6px;overflow:hidden}
+.post-ticker img{width:clamp(132px,36vw,168px);aspect-ratio:3/4;object-fit:cover;display:block}
 .pillars .tag{align-self:center;font-size:.6875rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:3px;background:var(--blush);color:var(--on-fill);margin-bottom:4px}
 .pillars .tag.t-sky{background:var(--sky)}
 .pillars p{font-size:.96875rem;line-height:1.5}
@@ -482,11 +487,12 @@ p{margin:0}
       <p class="label">Plan objava</p>
       <h2>Što ćemo objavljivati svaki tjedan?</h2>
     </div>
+    <div class="ticker post-ticker"><div class="ticker-track"><ul class="ticker-set" aria-label="Primjeri objava iz feeda"><li><img src="img/f-hit.jpg?v=375c14ac" alt="Primjer objave: Burger tjedna" loading="lazy" decoding="async"></li><li><img src="img/f-giveaway.jpg?v=c081bd69" alt="Primjer objave: Nagradna igra" loading="lazy" decoding="async"></li><li><img src="img/f-gdje.jpg?v=b7d7b082" alt="Primjer objave: Gdje smo?" loading="lazy" decoding="async"></li><li><img src="img/f-vecer.jpg?v=93d9f27b" alt="Primjer objave: Vidimo se večeras" loading="lazy" decoding="async"></li><li><img src="img/f-zagrij.jpg?v=cc3314ea" alt="Primjer objave: Zagrij se kod nas" loading="lazy" decoding="async"></li><li><img src="img/f-fritule.jpg?v=59b7058c" alt="Primjer objave: Fritule s čokoladom" loading="lazy" decoding="async"></li><li><img src="img/f-koncert.jpg?v=82e0db16" alt="Primjer objave: Večeras koncert!" loading="lazy" decoding="async"></li><li><img src="img/f-slatki.jpg?v=14cd8c91" alt="Primjer objave: Slatki kutak" loading="lazy" decoding="async"></li><li><img src="img/f-vibra.jpg?v=760b2651" alt="Primjer objave: Ekipa iza šanka" loading="lazy" decoding="async"></li></ul><ul class="ticker-set" aria-hidden="true"><li><img src="img/f-hit.jpg?v=375c14ac" alt="" loading="lazy" decoding="async"></li><li><img src="img/f-giveaway.jpg?v=c081bd69" alt="" loading="lazy" decoding="async"></li><li><img src="img/f-gdje.jpg?v=b7d7b082" alt="" loading="lazy" decoding="async"></li><li><img src="img/f-vecer.jpg?v=93d9f27b" alt="" loading="lazy" decoding="async"></li><li><img src="img/f-zagrij.jpg?v=cc3314ea" alt="" loading="lazy" decoding="async"></li><li><img src="img/f-fritule.jpg?v=59b7058c" alt="" loading="lazy" decoding="async"></li><li><img src="img/f-koncert.jpg?v=82e0db16" alt="" loading="lazy" decoding="async"></li><li><img src="img/f-slatki.jpg?v=14cd8c91" alt="" loading="lazy" decoding="async"></li><li><img src="img/f-vibra.jpg?v=760b2651" alt="" loading="lazy" decoding="async"></li></ul></div></div>
     <ul class="items pillars">
-      <li><img class="pthumb" src="img/p0.jpg?v=af739c2a" alt="Burger s otopljenim sirom"><div><span class="tag">Hit</span><h3>Specijalitet kućice</h3><p>Predstavljanje vašeg glavnog aduta (burger, kobasica, fritule, autorski koktel) – zašto probati baš vaš.</p></div></li>
-      <li><img class="pthumb" src="img/p3.jpg?v=329c0504" alt="Dvije čaše kuhanog vina"><div><span class="tag t-sky">Koncert</span><h3>Koncertni specijali</h3><p>Ciljane objave na dane velikih nastupa, npr. „Akcija na kuhano vino do 21 h prije koncerta”.</p></div></li>
-      <li><img class="pthumb" src="img/p4.jpg?v=a16d73b9" alt="Ekipa nazdravlja na trgu"><div><span class="tag">Giveaway</span><h3>Adventski giveaway</h3><p>„Označi ekipu s kojom dolaziš i osvoji rundu + klopu” – najbrži način za širenje po Zadru.</p></div></li>
-      <li><img class="pthumb" src="img/p1.jpg?v=da668428" alt="Nasmijana ekipa iza šanka kućice"><div><span class="tag t-sky">Vibra</span><h3>Ljudska strana i vibra</h3><p>Osmijeh iza šanka i dobra atmosfera – gosti se uvijek vraćaju tamo gdje je najbolja energija.</p></div></li>
+      <li><div><span class="tag">Hit</span><h3>Specijalitet kućice</h3><p>Predstavljanje vašeg glavnog aduta (burger, kobasica, fritule, autorski koktel) – zašto probati baš vaš.</p></div></li>
+      <li><div><span class="tag t-sky">Koncert</span><h3>Koncertni specijali</h3><p>Ciljane objave na dane velikih nastupa, npr. „Akcija na kuhano vino do 21 h prije koncerta”.</p></div></li>
+      <li><div><span class="tag">Giveaway</span><h3>Adventski giveaway</h3><p>„Označi ekipu s kojom dolaziš i osvoji rundu + klopu” – najbrži način za širenje po Zadru.</p></div></li>
+      <li><div><span class="tag t-sky">Vibra</span><h3>Ljudska strana i vibra</h3><p>Osmijeh iza šanka i dobra atmosfera – gosti se uvijek vraćaju tamo gdje je najbolja energija.</p></div></li>
     </ul>
   </div>
 </section>
